@@ -1,7 +1,6 @@
 #ifndef FISH_H
 #define FISH_H
-#include "Move.h"
-#include "Coordinate.h"
+#include "Animals.h"
 #include "Coin.h"
 #include <iostream>
 

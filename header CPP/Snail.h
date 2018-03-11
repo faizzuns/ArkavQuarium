@@ -1,7 +1,8 @@
-#ifndef PIRANHA_H
-#define PIRANHA_H
+#ifndef SNAIL_H
+#define SNAIL_H
+#include "Animals.h"
+#include "Coin.h"
 #include <iostream>
-
 
 class Snail : public Animals{
 private:

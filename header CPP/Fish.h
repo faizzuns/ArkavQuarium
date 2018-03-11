@@ -2,6 +2,7 @@
 #define FISH_H
 #include "Move.h"
 #include "Coordinate.h"
+#include "Coin.h"
 #include <iostream>
 
 #define OUTPUT_COIN 3
@@ -9,16 +10,8 @@
 #define STATE_DEAD 5
 #define LOOKING_LEFT 0
 #define LOOKING_RIGHT 1
-#define MOVE_TOP 0
-#define MOVE_BOTTOM 1
-#define MOVE_RIGHT 2
-#define MOVE_LEFT 3
-#define MOVE_DIAGONAL_TOP_LEFT 4
-#define MOVE_DIAGONAL_TOP_RIGHT 5
-#define MOVE_DIAGONAL_BOTTOM_RIGHT 6
-#define MOVE_DIAGONAL_BOTTOM_LEFT 7
 
-class Fish : public Move, public Coordinate {
+class Fish : public Animals {
 private:
   static GENERATE_ID = 0; //for generate id fish
   int id; //uniqe atribute
@@ -34,7 +27,7 @@ public:
   //without user input
   //assign coordinate value to parent
   //assign move value to parent
-  Fish(int x, int y);
+  Fish(int x, int y, int speed);
 
   //setters and getters
   int getId();
@@ -47,9 +40,11 @@ public:
   void setStillFull(int stillFull);
   void setCountingDead(int countingDead);
   void setLookAt(int lookAt);
+  bool notHungry();
+  bool isDead();
 
-  //fish can eat, but every fish has different way to eat
-  virtual void eat() = 0;
+  //fish can output some Coin
+  virtual Coin makeCoin() = 0;
 
   //fish can move to all direction
   void move(int direction);
@@ -64,6 +59,9 @@ public:
 
   //synchronize data after 1 lifetime
   void synchronize();
+
+  //make fish dead
+  void dead();
 };
 
 #endif

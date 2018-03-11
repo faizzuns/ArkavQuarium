@@ -10,7 +10,7 @@
 
 class Guppy : public Fish {
 private:
-  int phase; // GUppy phase
+  int phase; // Guppy phase
   int totalEatenFood; //total food this guppy eat
 public:
 

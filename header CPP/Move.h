@@ -18,16 +18,7 @@
 #define MOVE_DIAGONAL_BOTTOM_LEFT 7
 
 class Move {
-private:
-  int speed;
 public:
-
-  Move();
-  Move(int speed);
-  ~Move();
-  int getSpeed();
-  void setSpeed(int speed);
-
   virtual void moveTop() = 0;
   virtual void moveBottom() = 0;
   virtual void moveRight() = 0;

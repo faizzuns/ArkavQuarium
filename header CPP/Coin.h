@@ -9,10 +9,14 @@
 class Coin : public Move, public Coordinate{
 private:
   int value;
+  int speed;
 
 public:
-  Coin(int x, int y, int value);
+  Coin(int x, int y, int value, int speed);
   ~Coin();
+
+  int getSpeed();
+  void setSpeed(int speed);
 
   void moveBottom();
 

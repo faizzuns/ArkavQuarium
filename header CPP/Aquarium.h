@@ -15,6 +15,7 @@ private:
   Snail snail;
   int length;
   int width;
+  int aquariumLifetime;
 
   Coordinate randomCoordinate();
 
@@ -37,6 +38,9 @@ public:
   void addPiranha();
   void addCoin();
   void addFishFood();
+
+  int getAquariumLifetime();
+  void setAquariumLifetime(int lifetime);
 
 };
 

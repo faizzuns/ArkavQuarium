@@ -5,6 +5,8 @@
 #include <iostream>
 
 class Animals : public Move, public Coordinate {
+private:
+  int speed;
 public:
   Animals(int x, int y, int speed);
   ~Animals();
@@ -14,6 +16,9 @@ public:
 
   //all animals after 1 lifetime
   virtual void synchronize() = 0;
+
+  int getSpeed();
+  void setSpeed(int speed);
 };
 
 #endif

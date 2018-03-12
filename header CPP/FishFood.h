@@ -5,10 +5,15 @@
 #include <iostream>
 
 class FishFood : public Move,public Coordinate {
+private:
+  int speed;
 public:
 
-  FishFood(int x, int y);
+  FishFood(int x, int y, int speed);
   ~FishFood();
+
+  int getSpeed();
+  void setSpeed(int speed);
 
   void moveBottom();
 

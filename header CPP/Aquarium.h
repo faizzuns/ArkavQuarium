@@ -5,6 +5,7 @@
 #define MAX_LENGTH 100
 #define MAX_WIDTH 100
 
+//class aquarium
 class Aquarium {
 private:
   char[][] map = new char[MAX_LENGTH][MAX_WIDTH];

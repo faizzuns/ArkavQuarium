@@ -27,6 +27,7 @@ public:
   //assign coordinate value to parent
   //assign move value to parent
   Fish(int x, int y, int speed);
+  ~Fish();
 
   //setters and getters
   int getId();

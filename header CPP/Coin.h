@@ -16,7 +16,9 @@ public:
   ~Coin();
 
   int getSpeed();
+  int getValue();
   void setSpeed(int speed);
+  void setValue(int value);
 
   void moveBottom();
 

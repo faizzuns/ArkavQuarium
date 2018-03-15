@@ -28,6 +28,8 @@ public:
 
   //set value Y
   void setY(int y);
+
+  bool operator== (const Coordinate &C);
 };
 
 #endif

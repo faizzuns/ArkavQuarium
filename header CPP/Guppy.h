@@ -22,6 +22,7 @@ public:
   bool operator== (const Guppy &G);
 
   int getPhase();
+  void setPhase();
 
   void eat();
 

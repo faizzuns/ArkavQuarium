@@ -9,6 +9,7 @@
 class Aquarium {
 private:
   char[][] map = new char[MAX_LENGTH][MAX_WIDTH];
+  LinkedList<Coordinate> listCoordinate;
   LinkedList<Guppy> listGuppy;
   LinkedList<Piranha> listPiranha;
   LinkedList<Coin> listCoin;

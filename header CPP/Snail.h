@@ -18,6 +18,8 @@ public:
 
   void synchronize();
 
+  Snail& operator= (const Snail &S);
+
   Coin getNearestCoin(LinkedList<Coin> listCoin);
 
   void moveRight();

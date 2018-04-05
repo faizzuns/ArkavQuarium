@@ -26,7 +26,7 @@ public:
   //without user input
   //assign coordinate value to parent
   //assign move value to parent
-  Fish(int x, int y, int speed);
+  Fish(double x, double y, int speed);
   ~Fish();
 
   //setters and getters
@@ -52,10 +52,6 @@ public:
   void moveBottom();
   void moveRight();
   void moveLeft();
-  void moveDiagonalTopLeft();
-  void moveDiagonalTopRight();
-  void moveDiagonalBottomRight();
-  void moveDiagonalBottomLeft();
 
   //synchronize data after 1 lifetime
   void synchronize();

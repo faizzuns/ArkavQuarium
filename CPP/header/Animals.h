@@ -8,7 +8,7 @@ class Animals : public Move, public Coordinate {
 private:
   int speed;
 public:
-  Animals(int x, int y, int speed);
+  Animals(double x, double y, int speed);
   ~Animals();
 
   //animals can eat, but every animals has different way to eat

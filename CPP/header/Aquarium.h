@@ -5,11 +5,16 @@
 #define MAX_LENGTH 100
 #define MAX_WIDTH 100
 
+#define LOSE 0
+#define RUNNING 1
+#define WIN 2
+
 //class aquarium
 class Aquarium {
 private:
-  char[][] map = new char[MAX_LENGTH][MAX_WIDTH];
-  LinkedList<Coordinate> listCoordinate;
+
+  //char[][] map = new char[MAX_LENGTH][MAX_WIDTH];
+  //LinkedList<Coordinate> listCoordinate;
   LinkedList<Guppy> listGuppy;
   LinkedList<Piranha> listPiranha;
   LinkedList<Coin> listCoin;
@@ -27,6 +32,7 @@ private:
 
 public:
   static int aquariumCoin = 10;
+  static int egg = 0;
 
   Aquarium();
   Aquarium(int length, int width);
@@ -40,6 +46,8 @@ public:
   void addPiranha();
   void addCoin();
   void addFishFood();
+
+  static int checkAlreadyWin();
 
   int getAquariumLifetime();
   void setAquariumLifetime(int lifetime);

@@ -4,11 +4,11 @@
 #include "Guppy.h"
 class Piranha : public Fish {
 public:
-  Piranha(int x, int y);
+  Piranha(double x, double y);
   ~Piranha();
 
   bool operator== (const Piranha &G);
-  
+
   void eat();
 
   Coin makeCoin();

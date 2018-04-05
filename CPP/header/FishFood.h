@@ -9,7 +9,7 @@ private:
   int speed;
 public:
 
-  FishFood(int x, int y, int speed);
+  FishFood(double x, double y);
   ~FishFood();
 
   int getSpeed();

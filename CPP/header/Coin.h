@@ -10,6 +10,7 @@ class Coin : public Move, public Coordinate{
 private:
   int value;
   int speed;
+  //s
 
 public:
   Coin(int x, int y, int value, int speed);

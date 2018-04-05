@@ -8,7 +8,7 @@ class Snail : public Animals{
 private:
   int speed;
 public:
-  Snail(int x, int y);
+  Snail(double x, double y);
   ~Snail();
 
   int getSpeed();

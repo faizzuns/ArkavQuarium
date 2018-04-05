@@ -12,11 +12,12 @@ class Guppy : public Fish {
 private:
   int phase; // Guppy phase
   int totalEatenFood; //total food this guppy eat
+  //s
 public:
 
   //Constructor
   // x and y,
-  Guppy(int x, int y);
+  Guppy(double x, double y);
   ~Guppy();
 
   bool operator== (const Guppy &G);

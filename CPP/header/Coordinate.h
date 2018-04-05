@@ -4,8 +4,8 @@
 
 class Coordinate {
 private:
-  int x;
-  int y;
+  double x;
+  double y;
 
 public:
   //Default Constructor
@@ -15,21 +15,21 @@ public:
   //Constructor
   //assign this.x = x
   //assign this.y = y
-  Coordinate(int x, int y);
+  Coordinate(double x, double y);
 
   //return value x
-  int getX();
+  double getX();
 
   //return value y
-  int getY();
+  double getY();
 
   //set value X
-  void setX(int x);
+  void setX(double x);
 
   //set value Y
-  void setY(int y);
+  void setY(double y);
 
-  bool operator== (const Coordinate &C); 
+  bool operator== (const Coordinate &C);
 };
 
 #endif

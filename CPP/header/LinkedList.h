@@ -6,7 +6,7 @@ template <class T>
 class LinkedList{
 private:
   T data; //data
-  LinkedList *next; //for check next of list
+  LinkedList *next; //for check next of lists
 
 public:
   //Default Constructor

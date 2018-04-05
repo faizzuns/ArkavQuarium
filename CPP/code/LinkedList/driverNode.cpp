@@ -21,5 +21,5 @@ int main(){
 
   n = node.getNext();
 
-  cout<<n->getData()<<endl; 
+  cout<<n->getData()<<endl;
 }

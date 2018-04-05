@@ -1,7 +1,7 @@
 #ifndef COIN_H
 #define COIN_H
-#include "Move.h"
-#include "Coordinate.h"
+#include "../Move/Move.h"
+#include "../Coordinate/Coordinate.h"
 #include <iostream>
 
 #define BASE_COIN

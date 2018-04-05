@@ -1,7 +1,7 @@
 #ifndef SNAIL_H
 #define SNAIL_H
 #include "Animals.h"
-#include "Coin.h"
+#include "../Coin/Coin.h"
 #include <iostream>
 
 class Snail : public Animals{
@@ -23,7 +23,7 @@ public:
   Coin getNearestCoin(LinkedList<Coin> listCoin);
 
   void moveRight();
-  void moveLeft();
+  void moveLeft(); 
 };
 
 #endif

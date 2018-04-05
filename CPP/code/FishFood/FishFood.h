@@ -1,7 +1,7 @@
 #ifndef FISHFOOD_H
 #define FISHFOOD_H
-#include "Move.h"
-#include "Coordinate.h"
+#include "../Move/Move.h"
+#include "../Coordinate/Coordinate.h"
 #include <iostream>
 
 class FishFood : public Move,public Coordinate {

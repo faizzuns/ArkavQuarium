@@ -1,8 +1,8 @@
 #ifndef GUPPY_H
 #define GUPPY_H
 #include "Fish.h"
-#include "FishFood.h"
-#include "LinkedList.h"
+#include "../FishFood/FishFood.h"
+#include "../LinkedList/LinkedList.h"
 #include <iostream>
 
 #define MAX_PHASE 3

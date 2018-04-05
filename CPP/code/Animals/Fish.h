@@ -1,7 +1,7 @@
 #ifndef FISH_H
 #define FISH_H
 #include "Animals.h"
-#include "Coin.h"
+#include "../Coin/Coin.h"
 #include <iostream>
 
 #define OUTPUT_COIN 3

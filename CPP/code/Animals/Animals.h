@@ -1,7 +1,7 @@
 #ifndef ANIMALS_H
 #define ANIMALS_H
-#include "Move.h"
-#include "Coordinate.h"
+#include "../Move/Move.h"
+#include "../Coordinate/Coordinate.h"
 #include <iostream>
 
 class Animals : public Move, public Coordinate {

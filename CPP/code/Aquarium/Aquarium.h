@@ -31,8 +31,8 @@ private:
   void initiateSnail();
 
 public:
-  static int aquariumCoin = 10;
-  static int egg = 0;
+  int aquariumCoin = 10;
+  int egg = 0;
 
   Aquarium();
   Aquarium(int length, int width);
@@ -47,7 +47,7 @@ public:
   void addCoin();
   void addFishFood();
 
-  static int checkAlreadyWin();
+  int checkAlreadyWin();
 
   int getAquariumLifetime();
   void setAquariumLifetime(int lifetime);

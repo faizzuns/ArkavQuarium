@@ -3,6 +3,20 @@
 #include <math.h>
 #include <sstream>
 
+#include "code/Animals/Animals.h"
+#include "code/Animals/Fish.h"
+#include "code/Animals/Guppy.h"
+#include "code/Animals/Piranha.h"
+#include "code/Animals/Snail.h"
+#include "code/Aquarium/Aquarium.h"
+#include "code/Aquarium/mainMenu.h"
+#include "code/Aquarium/MenuBar.h"
+#include "code/Coin/Coin.h"
+#include "code/Coordinate/Coordinate.h"
+#include "code/FishFood/FishFood.h"
+#include "code/LinkedList/LinkedList.h"
+#include "code/Move/Move.h"
+
 const double speed = 50; // pixels per second
 
 int main( int argc, char* args[] )
@@ -17,6 +31,9 @@ int main( int argc, char* args[] )
     // Posisi ikan
     double cy = SCREEN_HEIGHT / 2;
     double cx = SCREEN_WIDTH / 2;
+
+    double midX = cx;
+    double midY = cy;
 
     bool running = true;
 
@@ -80,8 +97,9 @@ int main( int argc, char* args[] )
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
-        draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        draw_image("background.jpg", midX, midY);
+        // draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
+        // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         draw_image("ikan.png", cx, cy);
         update_screen();
     }

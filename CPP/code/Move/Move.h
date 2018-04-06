@@ -6,7 +6,7 @@
 #define FISH_SPEED 2
 #define SNAIL_SPEED 2
 #define COIN_SPEED 1
-#define FISH_FOOD_SPEED 1
+#define FISH_FOOD_SPEED 0.2
 
 #define MOVE_TOP 0
 #define MOVE_BOTTOM 1
@@ -15,6 +15,7 @@
 
 class Move {
 public:
+  Move(){}
   virtual void moveTop() = 0;
   virtual void moveBottom() = 0;
   virtual void moveRight() = 0;

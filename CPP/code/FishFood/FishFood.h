@@ -6,18 +6,31 @@
 
 class FishFood : public Move,public Coordinate {
 private:
-  int speed;
+  double speed;
 public:
 
-  FishFood(double x, double y);
-  ~FishFood();
+  FishFood():Move(), Coordinate(0,0){
+    speed = FISH_FOOD_SPEED;
+  }
 
-  int getSpeed();
-  void setSpeed(int speed);
+  FishFood(double x, double y):Move(), Coordinate(x,y){
+    speed = FISH_FOOD_SPEED;
+  }
 
-  void moveBottom();
+  double getSpeed(){
+    return speed;
+  }
+  void setSpeed(double speed){
+    this->speed = speed;
+  }
 
-  bool operator== (const FishFood &F);
+  void moveBottom(){
+    setY(getY() + (speed));
+  }
+
+  void moveTop(){}
+  void moveRight(){}
+  void moveLeft(){}
 };
 
 #endif

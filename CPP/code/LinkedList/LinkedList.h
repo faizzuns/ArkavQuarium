@@ -69,6 +69,31 @@ public:
       }else{
         head = now->getNext();
       }
+      now->setNext(NULL);
+      delete now;
+      return true;
+    }else return false;
+
+  }
+
+  bool remove(int idx){
+    Node<T> *prev = NULL;
+    Node<T> *now = head;
+
+    int i = 0;
+    while (i < idx){
+      prev = now;
+      now = now->getNext();
+    }
+
+    if (now != NULL){
+      if (prev != NULL){
+        prev->setNext(now->getNext());
+      }else{
+        head = now->getNext();
+      }
+      now->setNext(NULL);
+      delete now;
       return true;
     }else return false;
 
@@ -84,6 +109,20 @@ public:
         i++;
       }
       return now->getData();
+    }else{
+      throw "Index out of Bound";
+    }
+  }
+
+  Node<T>* getNode(int index){
+    if (index < size()){
+      Node<T> *now = head;
+      int i = 0;
+      while (i < index) {
+        now = now->getNext();
+        i++;
+      }
+      return now;
     }else{
       throw "Index out of Bound";
     }

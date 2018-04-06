@@ -3,15 +3,15 @@
 #include <math.h>
 #include <sstream>
 
-#include "code/Animals/Animals.h"
-#include "code/Animals/Fish.h"
-#include "code/Animals/Guppy.h"
-#include "code/Animals/Piranha.h"
-#include "code/Animals/Snail.h"
-#include "code/Aquarium/Aquarium.h"
-#include "code/Aquarium/mainMenu.h"
-#include "code/Aquarium/MenuBar.h"
-#include "code/Coin/Coin.h"
+// #include "code/Animals/Animals.h"
+// #include "code/Animals/Fish.h"
+// #include "code/Animals/Guppy.h"
+// #include "code/Animals/Piranha.h"
+// #include "code/Animals/Snail.h"
+// #include "code/Aquarium/Aquarium.h"
+// #include "code/Aquarium/mainMenu.h"
+// #include "code/Aquarium/MenuBar.h"
+// #include "code/Coin/Coin.h"
 #include "code/Coordinate/Coordinate.h"
 #include "code/FishFood/FishFood.h"
 #include "code/LinkedList/LinkedList.h"
@@ -22,6 +22,7 @@ const double speed = 50; // pixels per second
 int main( int argc, char* args[] )
 {
     init();
+    LinkedList<FishFood> list;
 
     // Menghitung FPS
     int frames_passed = 0;
@@ -47,6 +48,20 @@ int main( int argc, char* args[] )
         handle_input();
         if (quit_pressed()) {
             running = false;
+        }
+
+        int i = 0;
+        while (i < list.size()){
+          FishFood f = list.get(i);
+          f.moveBottom();
+
+          if (f.getY() > 400){
+            list.remove(i);
+          }else{
+            Node<FishFood> *nodeF = list.getNode(i);
+            nodeF->setData(f);
+            i++;
+          }
         }
 
         // Gerakkan ikan selama tombol panah ditekan
@@ -81,6 +96,10 @@ int main( int argc, char* args[] )
             case SDLK_x:
                 running = false;
                 break;
+            case SDLK_a:
+                FishFood ff(cx, 20);
+                list.add(ff);
+                break;
             }
         }
 
@@ -96,8 +115,12 @@ int main( int argc, char* args[] )
         }
 
         // Gambar ikan di posisi yang tepat.
+        //cx += speed * sec_since_last;
         clear_screen();
         draw_image("background.jpg", midX, midY);
+        for (int i = 0; i < list.size(); i++){
+          draw_image("ikan.png", list.get(i).getX(),list.get(i).getY());
+        }
         // draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         draw_image("ikan.png", cx, cy);

@@ -3,9 +3,9 @@
 #include <math.h>
 #include <sstream>
 
-// #include "code/Animals/Animals.h"
-// #include "code/Animals/Fish.h"
-// #include "code/Animals/Guppy.h"
+#include "code/Animals/Animals.h"
+#include "code/Animals/Fish.h"
+#include "code/Animals/Guppy.h"
 // #include "code/Animals/Piranha.h"
 // #include "code/Animals/Snail.h"
 // #include "code/Aquarium/Aquarium.h"
@@ -23,6 +23,7 @@ int main( int argc, char* args[] )
 {
     init();
     LinkedList<FishFood> list;
+    LinkedList<Guppy> listGuppy;
 
     // Menghitung FPS
     int frames_passed = 0;
@@ -64,6 +65,22 @@ int main( int argc, char* args[] )
           }
         }
 
+        int i = 0;
+        while (i < listGuppy.size()) {
+            Guppy g = listGuppy.get(i);
+            g.moveRight();
+
+            if(g.getX() == SCREEN_WIDTH) {
+                g.moveLeft();
+            }else if(g.getX() == 0) {
+                g.moveRight();
+            }else if(g.getY() == SCREEN_HEIGHT) {
+                g.moveTop();
+            }else if(g.getY() == 0) {
+                g.moveBottom();
+            }
+        }
+
         // Gerakkan ikan selama tombol panah ditekan
         // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
         // konstan pada komputer yang berbeda.
@@ -101,6 +118,10 @@ int main( int argc, char* args[] )
                 list.add(ff);
                 break;
             }
+            case SDLK_b:
+                Guppy gup1(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+                listGuppy.add(gup1);
+                break;
         }
 
         // Update FPS setiap detik
@@ -120,6 +141,9 @@ int main( int argc, char* args[] )
         draw_image("background.jpg", midX, midY);
         for (int i = 0; i < list.size(); i++){
           draw_image("ikan.png", list.get(i).getX(),list.get(i).getY());
+        }
+        for (int i = 0; i < listGuppy.size(); i++){
+          draw_image("guppy.png", listGuppy.get(i).getX(),listGuppy.get(i).getY());
         }
         // draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);

@@ -1,7 +1,7 @@
 // Anda tidak perlu melakukan perubahan pada file ini untuk memenuhi spek
 // wajib. Namun, hal tersebut diperbolehkan.
 #include "oop.hpp"
-
+#include <stdio.h>
 #include <map>
 #include <iostream>
 #include <chrono>

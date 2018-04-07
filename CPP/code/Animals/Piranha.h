@@ -4,7 +4,7 @@
 #include "Guppy.h"
 class Piranha : public Fish {
 public:
-  Piranha(double x, double y);
+  Piranha(double x, double y) : Fish(x, y, PIRANHA_SPEED) {};
   ~Piranha();
 
   bool operator== (const Piranha &G);

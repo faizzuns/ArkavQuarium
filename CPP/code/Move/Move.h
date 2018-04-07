@@ -14,6 +14,7 @@
 #define MOVE_LEFT 3
 
 #include "../Coordinate/Coordinate.h"
+#include <math.h>
 
 class Move : public Coordinate{
 private:
@@ -34,6 +35,12 @@ public:
   }
   void moveLeft(){
     setX(getX() - speed);
+  }
+
+  void moveGeneral(double x2, double y2){
+    a = atan2(y2-y, x2-x);
+    setX(getX() + (getSpeed() * cos(a) * t));
+    setY(getY() + (getSpeed() * sin(a) * t));
   }
 
   double getSpeed(){

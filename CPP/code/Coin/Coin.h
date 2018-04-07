@@ -4,26 +4,23 @@
 #include "../Coordinate/Coordinate.h"
 #include <iostream>
 
-#define BASE_COIN
+#define BASE_COIN 10
 
-class Coin : public Move, public Coordinate{
+#define GUPPY_PRICE 5
+
+class Coin : public Move{
 private:
   int value;
-  int speed;
-  //s
 
 public:
-  Coin(int x, int y, int value, int speed);
-  ~Coin();
+  Coin():Move(0,0,COIN_SPEED){value = 0;}
+  Coin(int x, int y, int value):Move(x,y,COIN_SPEED){
+    this->value = value;
+  }
 
-  int getSpeed();
-  int getValue();
-  void setSpeed(int speed);
-  void setValue(int value);
+  int getValue(){return value;}
+  void setValue(int value){this->value = value;}
 
-  void moveBottom();
-
-  bool operator== (const Coin &C);
 };
 
 

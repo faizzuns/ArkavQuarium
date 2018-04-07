@@ -22,6 +22,7 @@ const double speed = 50; // pixels per second
 int main( int argc, char* args[] )
 {
     init();
+    Aquarium aquarium;
     LinkedList<FishFood> list;
 
     // Menghitung FPS
@@ -119,7 +120,7 @@ int main( int argc, char* args[] )
         clear_screen();
         draw_image("background.jpg", midX, midY);
         for (int i = 0; i < list.size(); i++){
-          draw_image("ikan.png", list.get(i).getX(),list.get(i).getY());
+          draw_image("burger.png", list.get(i).getX(),list.get(i).getY());
         }
         // draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);

@@ -5,14 +5,9 @@
 #include <iostream>
 
 class Snail : public Animals{
-private:
-  int speed;
 public:
-  Snail(double x, double y);
-  ~Snail();
-
-  int getSpeed();
-  void setSpeed(int speed);
+  Snail():Animals(0,0,SNAIL_SPEED){}
+  Snail(double x, double y):Animals(x,y,SNAIL_SPEED){}
 
   void eat();
 
@@ -21,9 +16,6 @@ public:
   Snail& operator= (const Snail &S);
 
   Coin getNearestCoin(LinkedList<Coin> listCoin);
-
-  void moveRight();
-  void moveLeft(); 
 };
 
 #endif

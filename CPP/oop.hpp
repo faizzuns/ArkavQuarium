@@ -1,6 +1,7 @@
 #ifndef OOP_HPP
 #define OOP_HPP
 
+#include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>

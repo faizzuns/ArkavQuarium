@@ -4,11 +4,12 @@
 #include "../Coin/Coin.h"
 #include <iostream>
 
-#define OUTPUT_COIN 3
 #define STATE_FULL 4
 #define STATE_DEAD 5
 #define LOOKING_LEFT 0
 #define LOOKING_RIGHT 1
+#define GUPPY_PRICE 5
+#define PIRANHA_PRICE 50
 
 class Fish : public Animals {
 private:
@@ -18,6 +19,7 @@ private:
   int stillFull; //variabel for check if fish is still full or not
   int countingDead; //varaibel for check when fish dont eat after full
   int lookAt; //define the fish direction
+  int coinValue;
 
 public:
   //Constructor
@@ -26,38 +28,74 @@ public:
   //without user input
   //assign coordinate value to parent
   //assign move value to parent
-  Fish(double x, double y, int speed);
-  ~Fish();
+  Fish(double x, double y, int speed, int coinValue) : Animals(x, y, speed){
+    setId(GENERATE_ID);
+    GENERATE_ID++;
+    setLifetime(0);
+    setStillFull(STATE_FULL);
+    setCountingDead(STATE_DEAD);
+    setLookAt(LOOKING_RIGHT);
+    setCoinValue(coinValue);
+  }
+  ~Fish() {
+
+  }
 
   //setters and getters
-  int getId();
-  int getLifetime();
-  int getStillFull();
-  int getCountingDead();
-  int getLookAt();
-  void setId(int id);
-  void setLifetime(int lifetime);
-  void setStillFull(int stillFull);
-  void setCountingDead(int countingDead);
-  void setLookAt(int lookAt);
-  bool notHungry();
-  bool isDead();
+  int getCoinValue() {
+    return coinValue;
+  }
+  int getId() {
+    return id;
+  }
+  int getLifetime() {
+    return lifetime;
+  }
+  int getStillFull() {
+    return stillFull;
+  }
+  int getCountingDead() {
+    return countingDead;
+  }
+  int getLookAt() {
+    return lookAt;
+  }
+  void setCoinValue(int coinValue) {
+    this->coinValue = coinValue;
+  }
+  void setId(int id) {
+    this->id = id;
+  }
+  void setLifetime(int lifetime) {
+    this->lifetime = lifetime;
+  }
+  void setStillFull(int stillFull) {
+    this->stillFull = stillFull;
+  }
+  void setCountingDead(int countingDead) {
+    this->countingDead = countingDead;
+  }
+  void setLookAt(int lookAt) {
+    this->lookAt = lookAt;
+  }
+  bool notHungry() {
+    return (stillFull != 0);
+  }
 
   //fish can output some Coin
   virtual Coin makeCoin() = 0;
 
-  //fish can move to all direction
-  void move(int direction);
-  void moveTop();
-  void moveBottom();
-  void moveRight();
-  void moveLeft();
-
   //synchronize data after 1 lifetime
-  void synchronize();
-
-  //make fish dead
-  void dead();
+  void synchronize() {
+    if (notHungry()) {
+      stillFull--;
+    } else {
+      countingDead--;
+    }
+    if (countingDead == 0) {
+      dead();
+    }
+  } 
 };
 
 #endif

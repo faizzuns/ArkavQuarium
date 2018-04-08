@@ -38,9 +38,9 @@ public:
   }
 
   void moveGeneral(double x2, double y2){
-    a = atan2(y2-y, x2-x);
-    setX(getX() + (getSpeed() * cos(a) * t));
-    setY(getY() + (getSpeed() * sin(a) * t));
+    double a = atan2(y2-getY(), x2-getX());
+    setX(getX() + (getSpeed() * cos(a) * 1));
+    setY(getY() + (getSpeed() * sin(a) * 1));
   }
 
   double getSpeed(){

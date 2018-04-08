@@ -33,7 +33,7 @@ public:
 
   double distance2Point(double x1, double y1, double x2, double y2){
     double distance;
-    distance = sqrt((pow(x2-x1)) + (pow(y2-y1)));
+    distance = sqrt((pow(x2-x1,2)) + (pow(y2-y1,2)));
     return distance;
   }
 };

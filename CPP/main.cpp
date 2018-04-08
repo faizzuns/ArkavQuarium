@@ -17,7 +17,7 @@
 #include "code/LinkedList/LinkedList.h"
 #include "code/Move/Move.h"
 
-const double speed = 50; // pixels per second
+const double speed = 75; // pixels per second
 
 int main( int argc, char* args[] )
 {
@@ -33,6 +33,8 @@ int main( int argc, char* args[] )
     // Posisi ikan
     double cy = SCREEN_HEIGHT / 2;
     double cx = SCREEN_WIDTH / 2;
+
+    int duit = 10;
 
     double midX = cx;
     double midY = cy;
@@ -54,7 +56,7 @@ int main( int argc, char* args[] )
         int i = 0;
         while (i < list.size()){
           FishFood f = list.get(i);
-          f.moveBottom();
+          f.moveGeneral(f.getX(), 400);
 
           if (f.getY() > 400){
             list.remove(i);
@@ -98,8 +100,11 @@ int main( int argc, char* args[] )
                 running = false;
                 break;
             case SDLK_a:
-                FishFood ff(cx, 20);
-                list.add(ff);
+                if (duit - 2 >= 0){
+                  duit -= 2;
+                  FishFood ff(cx, cy);
+                  list.add(ff);
+                }
                 break;
             }
         }
@@ -123,10 +128,10 @@ int main( int argc, char* args[] )
           draw_image("burger.png", list.get(i).getX(),list.get(i).getY());
         }
 
-        std::string jmlCoin = "Jumlah Coin : " + std::to_string(10);
+        std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        draw_image("ikan.png", cx, cy);
+        draw_image("aim.png", cx, cy);
         update_screen();
     }
 

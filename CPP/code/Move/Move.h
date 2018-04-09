@@ -15,6 +15,7 @@
 
 #include "../Coordinate/Coordinate.h"
 #include <math.h>
+#include <cstdlib>
 
 class Move : public Coordinate{
 private:
@@ -49,6 +50,8 @@ public:
   void setSpeed(double speed){
     this->speed = speed;
   }
+
+  
 };
 
 #endif

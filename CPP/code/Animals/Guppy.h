@@ -13,7 +13,7 @@
 #define COIN_VALUE_PHASE_1 1
 #define COIN_VALUE_PHASE_2 2
 #define COIN_VALUE_PHASE_3 3
-#define COIN_PERIODIC 100000
+#define COIN_PERIODIC 400
 
 class Guppy : public Fish {
 private:
@@ -116,6 +116,7 @@ public:
   }
 
   int synchronize(LinkedList<Coin> &listCoin) {
+    setLifetime((getLifetime() + 1) % 1000);
     if (getLifetime() % COIN_PERIODIC == 0) {
       listCoin.add(makeCoin(0));
     }

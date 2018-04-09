@@ -220,16 +220,18 @@ int main( int argc, char* args[] )
         //Guppy
         //tahapan, ngeliat kemana
         for (int i = 0; i <listGuppy.size(); i++){
-          string tahapImg = std::to_string(listGuppy.get(i).getPhase() - 1);
+          string tahapImg = std::to_string(listGuppy.get(i).getPhase());
           string lookImg = listGuppy.get(i).getLookAt() == LOOKING_RIGHT ? "kanan" : "kiri";
+          string lapar = listGuppy.get(i).notHungry() ? "" : "lapar";
 
-          draw_image("draw/guppy" + tahapImg + lookImg + ".png", listGuppy.get(i).getX(), listGuppy.get(i).getY());
+          draw_image("draw/guppy" + tahapImg + lookImg + lapar + ".png", listGuppy.get(i).getX(), listGuppy.get(i).getY());
         }
 
         //Piranha
         //lookAt
         for (int i = 0; i < listPiranha.size(); i++){
-          string img = listPiranha.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan.png" : "draw/Carnivore.png";
+          string lapar = listPiranha.get(i).notHungry() ? "" : "lapar";
+          string img = listPiranha.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan" + lapar + ".png" : "draw/Carnivore" + lapar + ".png";
           draw_image(img, listPiranha.get(i).getX(), listPiranha.get(i).getY());
         }
 

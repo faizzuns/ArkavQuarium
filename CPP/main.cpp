@@ -19,6 +19,16 @@
 
 const double speed = 75; // pixels per second
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
 int main( int argc, char* args[] )
 {
     int mouseX, mouseY;

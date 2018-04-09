@@ -12,6 +12,7 @@
 #define COIN_VALUE_PHASE_1 1
 #define COIN_VALUE_PHASE_2 2
 #define COIN_VALUE_PHASE_3 3
+#define COIN_PERIODIC 1000
 
 class Guppy : public Fish {
 private:
@@ -43,18 +44,34 @@ public:
     if (!listFood.isEmpty()) {
       int foodIdx = getNearestFood(listFood);
       FishFood foodTemp = listFood.get(foodIdx);
-      moveGeneral(foodTemp.getX(), foodTemp.getY());
-      if (getX() == foodTemp.getX() && getY() == foodTemp.getY()) {
-        listFood.remove(foodIdx);
-        totalEatenFood++;
-        if (totalEatenFood == PHASE_2 || totalEatenFood == PHASE_3) {
-          nextPhase();
+      
+      if (beetweenX(foodTemp.getX(),5)){
+        if (beetweenY(foodTemp.getY(),10)){
+          listFood.remove(foodIdx);
+          totalEatenFood++;
+          stillFull = STATE_FULL;
+          countingDead = STATE_DEAD;
+          if (totalEatenFood == PHASE_2 || totalEatenFood == PHASE_3) {
+            nextPhase();
+          }
+          cout << "kenyang" << endl;
+        }
+      }else{
+        if (getX() < foodTemp.getX()){
+          cout<<"belok kanan"<<endl;
+          moveGeneral(foodTemp.getX(), foodTemp.getY());
+          setLookAt(LOOKING_RIGHT);
+        }else if (getX() > foodTemp.getX()){
+          moveGeneral(foodTemp.getX(), foodTemp.getY());
+          setLookAt(LOOKING_LEFT);
+          cout<<"belok kiri"<<endl;
         }
       }
     }
   }
   Coin makeCoin() {
-    Coin(getX(), getY(), getCoinValue());
+    Coin c(getX(), getY(), getCoinValue());
+    return c;
   }
 
   void nextPhase() {
@@ -87,8 +104,24 @@ public:
     }
   }
 
-  virtual void dead(LinkedList<Guppy> &listGuppy) {
-    if
+  int synchronize(linkedList<Coin> &listCoin) {
+    if (lifetime % 1000) {
+      listCoin.add(makeCoin());
+    }
+    if (notHungry()) {
+      stillFull--;
+      return 2;
+      //fish move randomly
+    } else {
+      countingDead--;
+      if (countingDead == 0) {
+        return 0;
+        //fish is dead
+      } else {
+        return 1;
+        //fish is dying
+      } 
+    }
   }
 };
 

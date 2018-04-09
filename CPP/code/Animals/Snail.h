@@ -15,24 +15,20 @@ public:
       int coinIdx = getNearestCoin(listCoin);
       //int coinIdx = 0;
       Coin coinTemp = listCoin.get(coinIdx);
-      int value = listCoin.get(coinIdx).getValue();
+      cout<<coinIdx<<endl;
 
       if (beetweenX(coinTemp.getX(),5)){
         if (beetweenY(coinTemp.getY(),10)){
           listCoin.remove(coinIdx);
-          cout<<"kenyang"<<endl;
-          return value2
-        ;
+          return x;
         }
       }else{
         if (getX() < coinTemp.getX()){
-          cout<<"belok kanan"<<endl;
           moveRight();
           setLookAt(LOOKING_RIGHT);
         }else if (getX() > coinTemp.getX()){
           moveLeft();
           setLookAt(LOOKING_LEFT);
-          cout<<"belok kiri"<<endl;
         }
       }
     }
@@ -56,8 +52,8 @@ public:
       int coinIdx;
       double distMin, distCurr;
 
-      coinIdx = 0;
-      distMin = distance2Point(listCoin.get(coinIdx).getX(), listCoin.get(coinIdx).getY(), getX(), getY());
+     coinIdx = 0;
+     distMin = distance2Point(listCoin.get(coinIdx).getX(), listCoin.get(coinIdx).getY(), getX(), getY());
 
       for (int i = 1; i < n; i++){
         distCurr = distance2Point(listCoin.get(i).getX(), listCoin.get(i).getY(), getX(), getY());

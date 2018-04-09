@@ -4,8 +4,8 @@
 #include <sstream>
 
 #include "code/Animals/Animals.h"
-// #include "code/Animals/Fish.h"
-// #include "code/Animals/Guppy.h"
+#include "code/Animals/Fish.h"
+#include "code/Animals/Guppy.h"
 // #include "code/Animals/Piranha.h"
 #include "code/Animals/Snail.h"
 // #include "code/Aquarium/Aquarium.h"
@@ -19,12 +19,24 @@
 
 const double speed = 75; // pixels per second
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
 int main( int argc, char* args[] )
 {
     int mouseX, mouseY;
     init();
     //Aquarium aquarium;
-    LinkedList<FishFood> list;
+    List<Guppy> listGuppy;
+    List<Piranha> listPiranha;
+    LinkedList<FishFood> listFishFood;
     LinkedList<Coin> listCoin;
     Snail snail(SCREEN_WIDTH / 2, 400);
 
@@ -41,6 +53,8 @@ int main( int argc, char* args[] )
 
     double midX = cx;
     double midY = cy;
+    Guppy g(midX, midY);
+    list.add(g);
 
     bool running = true;
 
@@ -60,11 +74,12 @@ int main( int argc, char* args[] )
         }
 
         int i = 0;
-        while (i < list.size()){
-          list.getRef(i)->moveGeneral(list.get(i).getX(), 400);
+        while (i < listFishFood.size()){
+          listFishFood.getRef(i)->moveGeneral(listFishFood.get(i).getX(), 400);
 
-          if (list.get(i).getY() > 400){
-            list.remove(i);
+          if (listFishFood.get(i).getY() > 400){
+            cout<<"huhui "<<i<<endl;
+            listFishFood.remove(i);
           }else i++;
         }
 
@@ -74,6 +89,40 @@ int main( int argc, char* args[] )
             listCoin.getRef(i)->moveGeneral(listCoin.get(i).getX(), 400);
           }
           i++;
+        }
+
+        i = 0;
+        while (i < listGuppy.size()){
+          int j = listGuppy.getRef(i)->synchronize(listCoin);
+          if (j = 0){
+            listGuppy.remove(i);
+          }else {
+            if (j == 1){
+              //lapar
+              listGuppy.getRef(i)->eat(listFishFood);
+            }else {
+              // ga lapar
+              listGuppy.getRef(i)->randomMove();
+            }
+            i++;
+          }
+        }
+
+        i = 0;
+        while (i < listPiranha.size()){
+          int j = listPiranha.getRef(i)->synchronize(listCoin);
+          if (j == 0){
+            listPiranha.remove(i);
+          }else{
+            if (j == 1){
+              //laper
+              listPiranha.getRef(i)->eat(listGuppy, listCoin);
+            }else{
+              //ga laper
+              listPiranha.getRef(i)->randomMove();
+            }
+            i++;
+          }
         }
 
         // Gerakkan ikan selama tombol panah ditekan
@@ -101,35 +150,40 @@ int main( int argc, char* args[] )
             switch (key) {
             // r untuk reset
             case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
-                break;
-            // x untuk keluar
+              cy = SCREEN_HEIGHT / 2;
+              cx = SCREEN_WIDTH / 2;
+              break;
+            //x untuk keluar
             case SDLK_x:
-                running = false;
-                break;
+              running = false;
+              break;
             case SDLK_a:
-                if (duit - 2 >= 0){
-                  duit -= 2;
-                  FishFood ff(cx, 20);
-                  list.add(ff);
-                }
-                break;
-              case SDLK_s:
-              cout<<"1"<<endl;
-                Coin cc(cx, 20, 10);
-                cout<<"2"<<endl;
-                listCoin.add(cc);
-                cout<<"3"<<endl;
-                break;
+              //guppy
+              if (duit >= GUPPY_PRICE){
+                duit -= GUPPY_PRICE;
+                Guppy g(midX, midY);
+                listGuppy.add(g);
+              }
+              break;
+            case SDLK_s:
+            //piranha
+              if (duit >= PIRANHA_PRICE){
+                duit -= PIRANHA_PRICE;
+                Piranha p(midX, midY);
+                listPiranha.add(p);
+              }
+              break;
             }
         }
 
         //Mouse Event
         if (mouseX != -1 && mouseY != -1){
-          if (mouseY > 110){
-            FishFood ff(mouseX, mouseY);
-            list.add(ff);
+          if (mouseY > 20 && mouseY < 400){
+            if (duit - 2 >= 0){
+              duit -= 2;
+              FishFood ff(mouseX, mouseY);
+              listFishFood.add(ff);
+            }
           }
         }
 
@@ -151,16 +205,36 @@ int main( int argc, char* args[] )
         //cx += speed * sec_since_last;
         clear_screen();
         draw_image("background.jpg", midX, midY);
-        for (int i = 0; i < list.size(); i++){
-          draw_image("burger.png", list.get(i).getX(),list.get(i).getY());
+
+        //fish food
+        for (int i = 0; i < listFishFood.size(); i++){
+          draw_image("burger.png", listFishFood.get(i).getX(),listFishFood.get(i).getY());
         }
 
+        //coin
         for (int i = 0; i < listCoin.size(); i++){
           draw_image("draw/Diamond.png", listCoin.get(i).getX(),listCoin.get(i).getY());
         }
 
+        //snail
         string snailImg = snail.getLookAt() == LOOKING_RIGHT? "draw/siputkanan.png" : "draw/siputkiri.png";
         draw_image(snailImg, snail.getX(), snail.getY());
+
+        //Guppy
+        //tahapan, ngeliat kemana
+        for (int i = 0; i <listGuppy.size(); i++){
+          string tahapImg = sdt::to_string(listGuppy.get(i).getPhase() - 1);
+          string lookImg = listGuppy.get(i).getLookAt() == LOOKING_RIGHT ? "kanan" : "kiri";
+
+          draw_image("draw/guppy" + tahapImg + lookImg + ".png", listGuppy.get(i).getX(), listGuppy.get(i).getY());
+        }
+
+        //Piranha
+        //lookAt
+        for (int i = 0; i < listPiranha.size(); i++){
+          string img = list.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan.png" : "draw/Carnivore.png";
+          draw_image(img, list.get(i).getX(), list.get(i).getY());
+        }
 
         std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);

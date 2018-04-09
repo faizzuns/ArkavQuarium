@@ -4,8 +4,8 @@
 #include "../Coin/Coin.h"
 #include <iostream>
 
-#define STATE_FULL 4
-#define STATE_DEAD 5
+#define STATE_FULL 1000
+#define STATE_DEAD 1500
 #define GUPPY_PRICE 5
 #define PIRANHA_PRICE 50
 
@@ -79,16 +79,7 @@ public:
   virtual Coin makeCoin() = 0;
 
   //synchronize data after 1 lifetime
-  void synchronize() {
-    if (notHungry()) {
-      stillFull--;
-    } else {
-      countingDead--;
-    }
-    if (countingDead == 0) {
-      dead();
-    }
-  }
+  virtual int synchronize(linkedList<Coin> &listCoin) = 0;
 };
 
 #endif

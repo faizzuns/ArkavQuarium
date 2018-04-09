@@ -4,8 +4,8 @@
 #include "../Coin/Coin.h"
 #include <iostream>
 
-#define STATE_FULL 1000
-#define STATE_DEAD 1500
+#define STATE_FULL 700
+#define STATE_DEAD 1000
 #define GUPPY_PRICE 5
 #define PIRANHA_PRICE 50
 

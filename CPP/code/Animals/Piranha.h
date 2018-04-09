@@ -70,6 +70,7 @@ public:
   }
 
   int synchronize(LinkedList<Coin> &listCoin) {
+    setLifetime((getLifetime() + 1) % 1000);
     if (notHungry()) {
       setStillFull(getStillFull() - 1);
       return 2;

@@ -3,15 +3,15 @@
 #include <math.h>
 #include <sstream>
 
-// #include "code/Animals/Animals.h"
+#include "code/Animals/Animals.h"
 // #include "code/Animals/Fish.h"
 // #include "code/Animals/Guppy.h"
 // #include "code/Animals/Piranha.h"
-// #include "code/Animals/Snail.h"
+#include "code/Animals/Snail.h"
 // #include "code/Aquarium/Aquarium.h"
 // #include "code/Aquarium/mainMenu.h"
 // #include "code/Aquarium/MenuBar.h"
-// #include "code/Coin/Coin.h"
+#include "code/Coin/Coin.h"
 #include "code/Coordinate/Coordinate.h"
 #include "code/FishFood/FishFood.h"
 #include "code/LinkedList/LinkedList.h"
@@ -24,6 +24,8 @@ int main( int argc, char* args[] )
     init();
     //Aquarium aquarium;
     LinkedList<FishFood> list;
+    LinkedList<Coin> listCoin;
+    Snail snail(SCREEN_WIDTH / 2, 400);
 
     // Menghitung FPS
     int frames_passed = 0;
@@ -55,16 +57,19 @@ int main( int argc, char* args[] )
 
         int i = 0;
         while (i < list.size()){
-          FishFood f = list.get(i);
-          f.moveGeneral(f.getX(), 400);
+          list.getRef(i)->moveGeneral(list.get(i).getX(), 400);
 
-          if (f.getY() > 400){
+          if (list.get(i).getY() > 400){
             list.remove(i);
-          }else{
-            Node<FishFood> *nodeF = list.getNode(i);
-            nodeF->setData(f);
-            i++;
+          }else i++;
+        }
+
+        i = 0;
+        while (i < listCoin.size()){
+          if (!listCoin.get(i).beetweenY(400, 2)){
+            listCoin.getRef(i)->moveGeneral(listCoin.get(i).getX(), 400);
           }
+          i++;
         }
 
         // Gerakkan ikan selama tombol panah ditekan
@@ -102,9 +107,16 @@ int main( int argc, char* args[] )
             case SDLK_a:
                 if (duit - 2 >= 0){
                   duit -= 2;
-                  FishFood ff(cx, cy);
+                  FishFood ff(cx, 20);
                   list.add(ff);
                 }
+                break;
+              case SDLK_s:
+              cout<<"1"<<endl;
+                Coin cc(cx, 20, 10);
+                cout<<"2"<<endl;
+                listCoin.add(cc);
+                cout<<"3"<<endl;
                 break;
             }
         }
@@ -120,6 +132,9 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
+        //snail.eat(listCoin);
+        int dapat = snail.eat(listCoin);
+        duit += dapat;
         // Gambar ikan di posisi yang tepat.
         //cx += speed * sec_since_last;
         clear_screen();
@@ -127,6 +142,13 @@ int main( int argc, char* args[] )
         for (int i = 0; i < list.size(); i++){
           draw_image("burger.png", list.get(i).getX(),list.get(i).getY());
         }
+
+        for (int i = 0; i < listCoin.size(); i++){
+          draw_image("draw/Diamond.png", listCoin.get(i).getX(),listCoin.get(i).getY());
+        }
+
+        string snailImg = snail.getLookAt() == LOOKING_RIGHT? "draw/siputkanan.png" : "draw/siputkiri.png";
+        draw_image(snailImg, snail.getX(), snail.getY());
 
         std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);

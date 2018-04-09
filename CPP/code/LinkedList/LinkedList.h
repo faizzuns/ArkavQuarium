@@ -114,6 +114,20 @@ public:
     }
   }
 
+  T* getRef(int index){
+    if (index < size()){
+      Node<T> *now = head;
+      int i = 0;
+      while (i < index) {
+        now = now->getNext();
+        i++;
+      }
+      return now->getDataRef();
+    }else{
+      throw "Index out of Bound";
+    }
+  }
+
   Node<T>* getNode(int index){
     if (index < size()){
       Node<T> *now = head;

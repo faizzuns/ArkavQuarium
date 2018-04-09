@@ -14,7 +14,7 @@ private:
 
 public:
   Coin():Move(0,0,COIN_SPEED){value = 0;}
-  Coin(int x, int y, int value):Move(x,y,COIN_SPEED){
+  Coin(double x, double y, int value):Move(x,y,COIN_SPEED){
     this->value = value;
   }
 

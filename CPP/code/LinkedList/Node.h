@@ -25,6 +25,7 @@ public:
   }
 
   T getData() {return data;}
+  T* getDataRef() {return &data;}
   void setData(T data) {this->data = data;}
   Node<T> *getNext(){return next;}
   void setNext(Node<T> *next){this->next = next;}

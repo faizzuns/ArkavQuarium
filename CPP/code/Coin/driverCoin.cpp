@@ -10,5 +10,9 @@ int main(){
   c.setValue(100);
   c.getValue();
 
+  cout<<c.getX()<<" "<<c.getY()<<endl;
+  c.moveBottom();
+  cout<<c.getX()<<" "<<c.getY()<<endl;
+
   return 0;
 }

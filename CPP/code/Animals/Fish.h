@@ -6,8 +6,6 @@
 
 #define STATE_FULL 4
 #define STATE_DEAD 5
-#define LOOKING_LEFT 0
-#define LOOKING_RIGHT 1
 #define GUPPY_PRICE 5
 #define PIRANHA_PRICE 50
 
@@ -57,9 +55,7 @@ public:
   int getCountingDead() {
     return countingDead;
   }
-  int getLookAt() {
-    return lookAt;
-  }
+
   void setCoinValue(int coinValue) {
     this->coinValue = coinValue;
   }
@@ -74,9 +70,6 @@ public:
   }
   void setCountingDead(int countingDead) {
     this->countingDead = countingDead;
-  }
-  void setLookAt(int lookAt) {
-    this->lookAt = lookAt;
   }
   bool notHungry() {
     return (stillFull != 0);
@@ -95,7 +88,7 @@ public:
     if (countingDead == 0) {
       dead();
     }
-  } 
+  }
 };
 
 #endif

@@ -1,5 +1,5 @@
 # Masukan semua file cpp ANda
-OBJS = oop.cpp main.cpp code\Coordinate\Coordinate.cpp
+OBJS = oop.cpp main.cpp
 
 CC = g++
 COMPILER_FLAGS = -Imingw_dev_lib\include -std=c++11 -Wall -O2

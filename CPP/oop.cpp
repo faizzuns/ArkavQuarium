@@ -125,7 +125,7 @@ bool quit = false;
 std::set<SDL_Keycode> pressedKeys;
 std::set<SDL_Keycode> tappedKeys;
 
-void handle_input() {
+void handle_input(int* mouseX, int* mouseY) {
     SDL_Event e;
     if (!tappedKeys.empty()) tappedKeys.clear();
     while( SDL_PollEvent( &e ) != 0 )
@@ -137,6 +137,9 @@ void handle_input() {
                 tappedKeys.insert(e.key.keysym.sym);
             } else if (e.type == SDL_KEYUP) {
                 pressedKeys.erase(e.key.keysym.sym);
+            } else if (e.type == SDL_MOUSEBUTTONDOWN) { // if the event is mouse click
+              *mouseX = e.motion.x;
+              *mouseY = e.motion.y;
             }
         }
 }

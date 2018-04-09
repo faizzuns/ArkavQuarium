@@ -47,7 +47,7 @@ void update_screen();
 // --------------------------------- MASUKAN ---------------------------------
 
 // Memproses masukan dari sistem operasi.
-void handle_input();
+void handle_input(int *mouseX, int *mouseY);
 
 // Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
 // keluar di jendela program ketika handle_input() terakhir dipanggil.

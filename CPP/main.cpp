@@ -21,6 +21,7 @@ const double speed = 75; // pixels per second
 
 int main( int argc, char* args[] )
 {
+    int mouseX, mouseY;
     init();
     //Aquarium aquarium;
     LinkedList<FishFood> list;
@@ -46,11 +47,14 @@ int main( int argc, char* args[] )
     double prevtime = time_since_start();
 
     while (running) {
+
+        mouseX = -1;
+        mouseY = -1;
         double now = time_since_start();
         double sec_since_last = now - prevtime;
         prevtime = now;
 
-        handle_input();
+        handle_input(&mouseX,&mouseY);
         if (quit_pressed()) {
             running = false;
         }
@@ -119,6 +123,14 @@ int main( int argc, char* args[] )
                 cout<<"3"<<endl;
                 break;
             }
+        }
+
+        //Mouse Event
+        if (mouseX != -1 && mouseY != -1){
+          if (mouseY > 110){
+            FishFood ff(mouseX, mouseY);
+            list.add(ff);
+          }
         }
 
         // Update FPS setiap detik

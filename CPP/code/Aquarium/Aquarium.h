@@ -26,7 +26,7 @@ private:
   LinkedList<Guppy> listGuppy;
   LinkedList<Piranha> listPiranha;
   LinkedList<Coin> listCoin;
-  LinkedList<FishFood> *listFishFood;
+  LinkedList<FishFood> listFishFood;
   Snail snail;
   int length;
   int width;
@@ -117,7 +117,7 @@ public:
     this->aquariumLifetime = lifetime;
   }
 
-  LinkedList<FishFood>* getListFishFood(){return listFood;}
+  LinkedList<FishFood> getListFishFood(){return listFood;}
 
 };
 

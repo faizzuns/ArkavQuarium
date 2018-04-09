@@ -36,9 +36,6 @@ public:
     return 0;
   }
 
-  void synchronize(){
-  }
-
   Snail& operator= (const Snail &S){
     //setX(S.getX());
     //setY(S.getY());

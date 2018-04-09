@@ -7,19 +7,21 @@
 
 class Piranha : public Fish {
 public:
-  Piranha(double x, double y) : Fish(x, y, PIRANHA_SPEED) {};
-  ~Piranha();
+  Piranha(double x, double y) : Fish(x, y, PIRANHA_SPEED) {}
+  Piranha() : Fish(0,0, PIRANHA_SPEED){}
+  ~Piranha(){}
 
   void eat(LinkedList<Guppy> &listGuppy, LinkedList<Coin> &listCoin) {
     if (!listGuppy.isEmpty()) {
-      int guppyIdx = getNearestFood(listGuppy);
+      int guppyIdx = getNearestGuppy(listGuppy);
       Guppy guppyTemp = listGuppy.get(guppyIdx);
-      
+
       if (beetweenX(guppyTemp.getX(),5)){
         if (beetweenY(guppyTemp.getY(),10)){
-          listCoin.add(makeCoin());
-          stillFull = STATE_FULL;
-          countingDead = STATE_DEAD;
+          listCoin.add(makeCoin(listGuppy.get(guppyIdx).getPhase()));
+          listGuppy.remove(guppyIdx);
+          setStillFull(STATE_FULL);
+          setCountingDead(STATE_DEAD);
           cout<<"kenyang"<<endl;
         }
       }else{
@@ -40,9 +42,8 @@ public:
       }
     }
   }
-  
-  Coin makeCoin() {
-  	int phase =  listGuppy.get(guppyIdx).getPhase();
+
+  Coin makeCoin(int phase) {
     int x = GUPPY_PRICE * (phase + 1);
   	Coin c(getX(), getY(), x);
   	return c;
@@ -60,28 +61,28 @@ public:
       for (int i = 1; i < n; i++){
         distCurr = distance2Point(listGuppy.get(i).getX(), listGuppy.get(i).getY(), this->getX(), this->getY());
         if (distCurr <= distMin) {
-          guppyIdx = i;  
+          guppyIdx = i;
           distMin = distCurr;
         }
       }
       return guppyIdx;
-    }
+    }else return 0;
   }
 
-  int synchronize(linkedList<Coin> &listCoin) {
+  int synchronize(LinkedList<Coin> &listCoin) {
     if (notHungry()) {
-      stillFull--;
+      setStillFull(getStillFull() - 1);
       return 2;
       //fish move randomly
     } else {
-      countingDead--;
-      if (countingDead == 0) {
+      setCountingDead(getCountingDead() - 1);
+      if (getCountingDead() == 0) {
         return 0;
         //fish is dead
       } else {
         return 1;
         //fish is dying
-      } 
+      }
     }
   }
 };

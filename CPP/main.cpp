@@ -112,11 +112,8 @@ int main( int argc, char* args[] )
                 }
                 break;
               case SDLK_s:
-              cout<<"1"<<endl;
                 Coin cc(cx, 20, 10);
-                cout<<"2"<<endl;
                 listCoin.add(cc);
-                cout<<"3"<<endl;
                 break;
             }
         }

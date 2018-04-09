@@ -5,7 +5,7 @@
 #define PIRANHA_SPEED 2
 #define FISH_SPEED 2
 #define SNAIL_SPEED 0.3
-#define COIN_SPEED 0.2
+#define COIN_SPEED 0.3
 #define FISH_FOOD_SPEED 0.4
 
 #define MOVE_TOP 0

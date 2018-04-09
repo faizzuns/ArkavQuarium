@@ -15,13 +15,14 @@ public:
       int coinIdx = getNearestCoin(listCoin);
       //int coinIdx = 0;
       Coin coinTemp = listCoin.get(coinIdx);
+      int value = listCoin.get(coinIdx).getValue();
 
       if (beetweenX(coinTemp.getX(),5)){
         if (beetweenY(coinTemp.getY(),10)){
-          int x =  listCoin.get(coinIdx).getValue();
           listCoin.remove(coinIdx);
           cout<<"kenyang"<<endl;
-          return x;
+          return value2
+        ;
         }
       }else{
         if (getX() < coinTemp.getX()){
@@ -50,13 +51,13 @@ public:
   }
 
   int getNearestCoin(LinkedList<Coin> &listCoin) {
-   if (!listCoin.isEmpty()){
+    if (!listCoin.isEmpty()){
       int n = listCoin.size();
       int coinIdx;
-     double distMin, distCurr;
+      double distMin, distCurr;
 
       coinIdx = 0;
-     distMin = distance2Point(listCoin.get(coinIdx).getX(), listCoin.get(coinIdx).getY(), getX(), getY());
+      distMin = distance2Point(listCoin.get(coinIdx).getX(), listCoin.get(coinIdx).getY(), getX(), getY());
 
       for (int i = 1; i < n; i++){
         distCurr = distance2Point(listCoin.get(i).getX(), listCoin.get(i).getY(), getX(), getY());
@@ -66,9 +67,10 @@ public:
         }
       }
       return coinIdx;
-    }else return 0;
+    } else {
+      return 0;
+    }
   }
-
 };
 
 #endif

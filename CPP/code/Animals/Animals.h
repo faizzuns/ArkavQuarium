@@ -16,12 +16,6 @@ public:
   Animals(double x, double y, double speed):Move(x,y,speed){
     lookAt = LOOKING_LEFT;
   }
-  //animals can eat, but every animals has different way to eat
-  template <class T>
-  int eat(LinkedList<T> list){return 0;}
-
-  //all animals after 1 lifetime
-  virtual void synchronize() = 0;
 
   int getLookAt() {
     return lookAt;

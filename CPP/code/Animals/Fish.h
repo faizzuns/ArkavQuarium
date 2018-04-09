@@ -11,13 +11,10 @@
 
 class Fish : public Animals {
 private:
-  static GENERATE_ID = 0; //for generate id fish
-  int id; //uniqe atribute
   int lifetime; //variabel for check to output coin
   int stillFull; //variabel for check if fish is still full or not
   int countingDead; //varaibel for check when fish dont eat after full
   int lookAt; //define the fish direction
-  int coinValue;
 
 public:
   //Constructor
@@ -26,26 +23,24 @@ public:
   //without user input
   //assign coordinate value to parent
   //assign move value to parent
-  Fish(double x, double y, int speed, int coinValue) : Animals(x, y, speed){
-    setId(GENERATE_ID);
-    GENERATE_ID++;
+  Fish(double x, double y, int speed) : Animals(x, y, speed){
     setLifetime(0);
     setStillFull(STATE_FULL);
     setCountingDead(STATE_DEAD);
     setLookAt(LOOKING_RIGHT);
-    setCoinValue(coinValue);
+  }
+  Fish() : Animals(0,0,0){
+    setLifetime(0);
+    setStillFull(STATE_FULL);
+    setCountingDead(STATE_DEAD);
+    setLookAt(LOOKING_RIGHT);
   }
   ~Fish() {
 
   }
 
   //setters and getters
-  int getCoinValue() {
-    return coinValue;
-  }
-  int getId() {
-    return id;
-  }
+
   int getLifetime() {
     return lifetime;
   }
@@ -56,12 +51,7 @@ public:
     return countingDead;
   }
 
-  void setCoinValue(int coinValue) {
-    this->coinValue = coinValue;
-  }
-  void setId(int id) {
-    this->id = id;
-  }
+
   void setLifetime(int lifetime) {
     this->lifetime = lifetime;
   }
@@ -76,10 +66,12 @@ public:
   }
 
   //fish can output some Coin
-  virtual Coin makeCoin() = 0;
+  virtual Coin makeCoin(int phase) = 0;
 
   //synchronize data after 1 lifetime
-  virtual int synchronize(linkedList<Coin> &listCoin) = 0;
+  virtual int synchronize(LinkedList<Coin> &listCoin) = 0;
+
+  void randomMove(){}
 };
 
 #endif

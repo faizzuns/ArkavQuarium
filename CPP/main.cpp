@@ -6,11 +6,8 @@
 #include "code/Animals/Animals.h"
 #include "code/Animals/Fish.h"
 #include "code/Animals/Guppy.h"
-// #include "code/Animals/Piranha.h"
+#include "code/Animals/Piranha.h"
 #include "code/Animals/Snail.h"
-// #include "code/Aquarium/Aquarium.h"
-// #include "code/Aquarium/mainMenu.h"
-// #include "code/Aquarium/MenuBar.h"
 #include "code/Coin/Coin.h"
 #include "code/Coordinate/Coordinate.h"
 #include "code/FishFood/FishFood.h"
@@ -34,8 +31,8 @@ int main( int argc, char* args[] )
     int mouseX, mouseY;
     init();
     //Aquarium aquarium;
-    List<Guppy> listGuppy;
-    List<Piranha> listPiranha;
+    LinkedList<Guppy> listGuppy;
+    LinkedList<Piranha> listPiranha;
     LinkedList<FishFood> listFishFood;
     LinkedList<Coin> listCoin;
     Snail snail(SCREEN_WIDTH / 2, 400);
@@ -54,7 +51,7 @@ int main( int argc, char* args[] )
     double midX = cx;
     double midY = cy;
     Guppy g(midX, midY);
-    list.add(g);
+    listGuppy.add(g);
 
     bool running = true;
 
@@ -94,7 +91,7 @@ int main( int argc, char* args[] )
         i = 0;
         while (i < listGuppy.size()){
           int j = listGuppy.getRef(i)->synchronize(listCoin);
-          if (j = 0){
+          if (j == 0){
             listGuppy.remove(i);
           }else {
             if (j == 1){
@@ -223,7 +220,7 @@ int main( int argc, char* args[] )
         //Guppy
         //tahapan, ngeliat kemana
         for (int i = 0; i <listGuppy.size(); i++){
-          string tahapImg = sdt::to_string(listGuppy.get(i).getPhase() - 1);
+          string tahapImg = std::to_string(listGuppy.get(i).getPhase() - 1);
           string lookImg = listGuppy.get(i).getLookAt() == LOOKING_RIGHT ? "kanan" : "kiri";
 
           draw_image("draw/guppy" + tahapImg + lookImg + ".png", listGuppy.get(i).getX(), listGuppy.get(i).getY());
@@ -232,8 +229,8 @@ int main( int argc, char* args[] )
         //Piranha
         //lookAt
         for (int i = 0; i < listPiranha.size(); i++){
-          string img = list.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan.png" : "draw/Carnivore.png";
-          draw_image(img, list.get(i).getX(), list.get(i).getY());
+          string img = listPiranha.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan.png" : "draw/Carnivore.png";
+          draw_image(img, listPiranha.get(i).getX(), listPiranha.get(i).getY());
         }
 
         std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);

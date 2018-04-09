@@ -49,6 +49,7 @@ public:
       Node<T> *temp = head;
       while (temp->getNext() != NULL) temp = temp->getNext();
       temp->setNext(new Node<T>(element));
+      cout<<"yang selanjutnya"<<endl;
     }
   }
 
@@ -80,10 +81,13 @@ public:
     Node<T> *prev = NULL;
     Node<T> *now = head;
 
+    cout<<idx<<endl;
     int i = 0;
     while (i < idx){
+      cout<<"FAIZ HEBAT"<<endl;
       prev = now;
       now = now->getNext();
+      i++;
     }
 
     if (now != NULL){

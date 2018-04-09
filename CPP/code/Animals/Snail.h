@@ -12,8 +12,8 @@ public:
 
   int eat(LinkedList<Coin> &listCoin) {
     if (!listCoin.isEmpty()) {
-      //int coinIdx = getNearestCoin(listCoin);
-      int coinIdx = 0;
+      int coinIdx = getNearestCoin(listCoin);
+      //int coinIdx = 0;
       Coin coinTemp = listCoin.get(coinIdx);
       cout<<coinIdx<<endl;
 

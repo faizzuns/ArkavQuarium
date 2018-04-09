@@ -19,6 +19,16 @@
 
 const double speed = 75; // pixels per second
 
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+
 int main( int argc, char* args[] )
 {
     int mouseX, mouseY;
@@ -162,7 +172,7 @@ int main( int argc, char* args[] )
         string snailImg = snail.getLookAt() == LOOKING_RIGHT? "draw/siputkanan.png" : "draw/siputkiri.png";
         draw_image(snailImg, snail.getX(), snail.getY());
 
-        std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
+        std::string jmlCoin = "Jumlah Coin : " + patch::to_string(duit);
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         draw_image("aim.png", cx, cy);

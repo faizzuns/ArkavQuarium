@@ -43,12 +43,25 @@ public:
     if (!listFood.isEmpty()) {
       int foodIdx = getNearestFood(listFood);
       FishFood foodTemp = listFood.get(foodIdx);
-      moveGeneral(foodTemp.getX(), foodTemp.getY());
-      if (getX() == foodTemp.getX() && getY() == foodTemp.getY()) {
-        listFood.remove(foodIdx);
-        totalEatenFood++;
-        if (totalEatenFood == PHASE_2 || totalEatenFood == PHASE_3) {
-          nextPhase();
+      
+      if (beetweenX(foodTemp.getX(),5)){
+        if (beetweenY(foodTemp.getY(),10)){
+          listFood.remove(foodIdx);
+          totalEatenFood++;
+          if (totalEatenFood == PHASE_2 || totalEatenFood == PHASE_3) {
+            nextPhase();
+          }
+          cout << "kenyang" << endl;
+        }
+      }else{
+        if (getX() < foodTemp.getX()){
+          cout<<"belok kanan"<<endl;
+          moveGeneral(foodTemp.getX(), foodTemp.getY());
+          setLookAt(LOOKING_RIGHT);
+        }else if (getX() > foodTemp.getX()){
+          moveGeneral(foodTemp.getX(), foodTemp.getY());
+          setLookAt(LOOKING_LEFT);
+          cout<<"belok kiri"<<endl;
         }
       }
     }

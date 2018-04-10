@@ -14,8 +14,6 @@ public:
     if (!listCoin.isEmpty()) {
       int coinIdx = getNearestCoin(listCoin);
       Coin coinTemp = listCoin.get(coinIdx);
-      cout<<coinIdx<<endl;
-
       if (beetweenX(coinTemp.getX(),5)){
         if (beetweenY(coinTemp.getY(),10)){
           int x =  listCoin.get(coinIdx).getValue();

@@ -116,7 +116,7 @@ int main( int argc, char* args[] )
     double midX = cx;
     double midY = cy;
 
-    bool load = true;
+    bool load = false;
 
     if (load){
       //stream untuk membaca file
@@ -130,7 +130,6 @@ int main( int argc, char* args[] )
          }
          myfile.close();
        }
-       cout<<duit<<endl;
 
        myfile.open("telur.txt");
        if (!myfile.fail()){
@@ -382,7 +381,17 @@ int main( int argc, char* args[] )
               //guppy
               if (duit >= GUPPY_PRICE){
                 duit -= GUPPY_PRICE;
-                Guppy g(midX, midY);
+                int xx = rand() % 10;
+                double aa = 0;double bb = 0;
+                for (int i = 0; i < xx; i++){
+                  aa =double(rand() % 300) + 100;
+                  bb =double(rand() % 200) + 100;
+                }
+                if (aa < 20 && bb < 20){
+                  aa = midX;
+                  bb = midY;
+                }
+                Guppy g(aa, bb);
                 listGuppy.add(g);
               }
               break;
@@ -390,7 +399,17 @@ int main( int argc, char* args[] )
             //piranha
               if (duit >= PIRANHA_PRICE){
                 duit -= PIRANHA_PRICE;
-                Piranha p(midX, midY);
+                int xx = rand() % 10;
+                double aa = 0;double bb = 0;
+                for (int i = 0; i < xx; i++){
+                  aa =double(rand() % 300) + 100;
+                  bb =double(rand() % 200) + 100;
+                }
+                if (aa < 20 && bb < 20){
+                  aa = midX;
+                  bb = midY;
+                }
+                Piranha p(aa, bb);
                 listPiranha.add(p);
               }
               break;
@@ -412,7 +431,17 @@ int main( int argc, char* args[] )
 
         //Mouse Event
         if (mouseX != -1 && mouseY != -1){
-          if (mouseY > 20 && mouseY < 400){
+          int i = 0;
+          while(i < listCoin.size()){
+            if (listCoin.get(i).beetweenX(mouseX, 20) && listCoin.get(i).beetweenY(mouseY, 20)){
+              break;
+            }
+            i++;
+          }
+          if (i != listCoin.size()){
+            duit += listCoin.get(i).getValue();
+            listCoin.remove(i);
+          }else if (mouseY > 20 && mouseY < 400){
             if (duit - 2 >= 0){
               duit -= 2;
               FishFood ff(mouseX, mouseY);
@@ -475,20 +504,17 @@ int main( int argc, char* args[] )
         std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        draw_image("aim.png", cx, cy);
+        // draw_image("aim.png", cx, cy);
 
         //check for win/lose
         if (telur == 3){
           //win
           running = false;
           draw_text("WIN", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
-          cout<<"WIN"<<endl;
         }else{
-          cout<<duit<<" "<<(duit < GUPPY_PRICE)<< " " << GUPPY_PRICE<<endl;
           if (listCoin.size() == 0 && listGuppy.size() == 0 && listPiranha.size() == 0 && duit < GUPPY_PRICE){
             running = false;
             draw_text("LOSE", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
-            cout<<"LOSE"<<endl;
           }
         }
         update_screen();

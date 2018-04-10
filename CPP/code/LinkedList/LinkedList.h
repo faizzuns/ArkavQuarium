@@ -43,13 +43,11 @@ public:
   void add(T element){
     if (head == NULL){
       head = new Node<T>(element);
-      cout<<"Satu kali aja"<<endl;
     }
     else{
       Node<T> *temp = head;
       while (temp->getNext() != NULL) temp = temp->getNext();
       temp->setNext(new Node<T>(element));
-      cout<<"yang selanjutnya"<<endl;
     }
   }
 
@@ -61,7 +59,6 @@ public:
     while (now != NULL && now->getData() != element){
       prev = now;
       now = now->getNext();
-      cout<<"EA"<<endl;
     }
 
     if (now != NULL){

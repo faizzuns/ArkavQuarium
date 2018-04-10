@@ -6,11 +6,11 @@ int main(){
 
   FishFood f(10, 10);
 
-  cout<<f.getX()<<" "<<f.getY()<<endl;
+  cout<< "Posisi awal                :(" <<f.getX()<<","<<f.getY()<<")"<<endl;
 
   f.moveBottom();
 
-  cout<<f.getX()<<" "<<f.getY()<<endl;
+  cout<< "Posisi setelah move bottom :(" << f.getX()<<","<<f.getY()<<")"<<endl;
 
   return 0;
 }

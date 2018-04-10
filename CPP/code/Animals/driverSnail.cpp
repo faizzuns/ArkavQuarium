@@ -3,29 +3,30 @@
 using namespace std;
 
 int main(){
-  Snail s(10,10);
+  Snail s1;
+  Snail s2(10, 10);
 
-  LinkedList<Coin> *list = new LinkedList<Coin>();
+  LinkedList<Coin> listCoin;
 
-  Coin c(10,10,2);
+  Coin c1(10, 10, 1);
+  Coin c2(0, 0, 2);
+  Coin c3(50, 10, 3);
+  Coin c4(50, 0, 4);
+  
   //cout<<c.getX()<<endl;
-  list->add(c);
-  list->add(c);
+  listCoin.add(c1);
+  listCoin.add(c2);
+  listCoin.add(c3);
+  listCoin.add(c4);
 
-  cout<<list->size()<<endl;
+  cout << listCoin.size() << endl;
+  //it should print 4
 
+  cout << s1.eat(listCoin) << endl; //2
+  cout << s1.eat(listCoin) << endl; //0
+  cout << s2.eat(listCoin) << endl; //1
+  cout << s2.eat(listCoin) << endl; //0
 
-  //cout<<list.get(0).getX()<<endl;
-
-  // int i = 0;
-  // while (list.size() != 0) {
-  //   /* code */
-  //   cout<<list.get(0).getY()<<endl;
-  //   s.eat(list);
-  //   Node<Coin> *node = list.getNode(0);
-  //   c.setY(c.getY() + 1);
-  //   node->setData(c);
-  // }
 
   return 0;
 }

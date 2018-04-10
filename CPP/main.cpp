@@ -118,6 +118,36 @@ int main( int argc, char* args[] )
 
     bool load = false;
 
+    bool run = true;
+
+    while (run){
+      clear_screen();
+      draw_image("background.jpg", midX, midY);
+      draw_image("draw/button_start.png", midX, midY - 30);
+      draw_image("draw/button_load.png", midX, midY + 30);
+
+      mouseX = -1;
+      mouseY = -1;
+      handle_input(&mouseX,&mouseY);
+
+      if (mouseX != -1 && mouseY != -1){
+        //start
+        cout<<mouseX<<" "<<mouseY<<endl;
+        if (mouseX > 278 && mouseX < 360 && mouseY > 193 && mouseY < 225){
+          load = false;
+          run = false;
+        }else if (mouseX > 278 && mouseX < 360 && mouseY > 253 && mouseY < 285){
+          load = true;
+          run = false;
+        }
+      }
+
+      update_screen();
+
+      if (quit_pressed()){ run = false;}
+    }
+
+
     if (load){
       //stream untuk membaca file
        ifstream myfile;
@@ -364,73 +394,9 @@ int main( int argc, char* args[] )
                 break;
             }
         }
-
-        // Proses masukan yang bersifat "tombol"
-        for (auto key : get_tapped_keys()) {
-            switch (key) {
-            // r untuk reset
-            case SDLK_r:
-              cy = SCREEN_HEIGHT / 2;
-              cx = SCREEN_WIDTH / 2;
-              break;
-            //x untuk keluar
-            case SDLK_x:
-              running = false;
-              break;
-            case SDLK_a:
-              //guppy
-              if (duit >= GUPPY_PRICE){
-                duit -= GUPPY_PRICE;
-                int xx = rand() % 10;
-                double aa = 0;double bb = 0;
-                for (int i = 0; i < xx; i++){
-                  aa =double(rand() % 300) + 100;
-                  bb =double(rand() % 200) + 100;
-                }
-                if (aa < 20 && bb < 20){
-                  aa = midX;
-                  bb = midY;
-                }
-                Guppy g(aa, bb);
-                listGuppy.add(g);
-              }
-              break;
-            case SDLK_s:
-            //piranha
-              if (duit >= PIRANHA_PRICE){
-                duit -= PIRANHA_PRICE;
-                int xx = rand() % 10;
-                double aa = 0;double bb = 0;
-                for (int i = 0; i < xx; i++){
-                  aa =double(rand() % 300) + 100;
-                  bb =double(rand() % 200) + 100;
-                }
-                if (aa < 20 && bb < 20){
-                  aa = midX;
-                  bb = midY;
-                }
-                Piranha p(aa, bb);
-                listPiranha.add(p);
-              }
-              break;
-            case SDLK_t:
-              if (duit >= BASE_EGG_PRICE * (telur + 1)){
-                telur++;
-                duit -= BASE_EGG_PRICE * telur;
-              }
-              break;
-            case SDLK_q:
-              //save;
-              saveFile(duit, telur, listGuppy, listPiranha, listFishFood, listCoin, snail);
-              running = false;
-              break;
-            }
-        }
-
-        if (!running) break;
-
         //Mouse Event
         if (mouseX != -1 && mouseY != -1){
+          cout<<mouseX<<" "<<mouseY<<endl;
           int i = 0;
           while(i < listCoin.size()){
             if (listCoin.get(i).beetweenX(mouseX, 20) && listCoin.get(i).beetweenY(mouseY, 20)){
@@ -441,7 +407,48 @@ int main( int argc, char* args[] )
           if (i != listCoin.size()){
             duit += listCoin.get(i).getValue();
             listCoin.remove(i);
-          }else if (mouseY > 20 && mouseY < 400){
+          }else if (mouseX > 54 - 30 && mouseX < 54 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
+            saveFile(duit, telur, listGuppy, listPiranha, listFishFood, listCoin, snail);
+            running = false;
+            break;
+          }else if (mouseX > 482 - 30 && mouseX < 482 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
+            if (duit >= GUPPY_PRICE){
+              duit -= GUPPY_PRICE;
+              int xx = rand() % 10;
+              double aa = 0;double bb = 0;
+              for (int i = 0; i < xx; i++){
+                aa =double(rand() % 300) + 100;
+                bb =double(rand() % 200) + 100;
+              }
+              if (aa < 20 && bb < 20){
+                aa = midX;
+                bb = midY;
+              }
+              Guppy g(aa, bb);
+              listGuppy.add(g);
+            }
+          }else if (mouseX > 395 - 30 && mouseX < 395 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
+            if (duit >= PIRANHA_PRICE){
+              duit -= PIRANHA_PRICE;
+              int xx = rand() % 10;
+              double aa = 0;double bb = 0;
+              for (int i = 0; i < xx; i++){
+                aa =double(rand() % 300) + 100;
+                bb =double(rand() % 200) + 100;
+              }
+              if (aa < 20 && bb < 20){
+                aa = midX;
+                bb = midY;
+              }
+              Piranha p(aa, bb);
+              listPiranha.add(p);
+            }
+          }else if (mouseX > 575 - 30 && mouseX < 575 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
+            if (duit >= BASE_EGG_PRICE * (telur + 1)){
+              telur++;
+              duit -= BASE_EGG_PRICE * telur;
+            }
+          }else if (mouseY > 80 && mouseY < 400){
             if (duit - 2 >= 0){
               duit -= 2;
               FishFood ff(mouseX, mouseY);
@@ -501,8 +508,23 @@ int main( int argc, char* args[] )
           draw_image(img, listPiranha.get(i).getX(), listPiranha.get(i).getY());
         }
 
-        std::string jmlCoin = "Jumlah Coin : " + std::to_string(duit);
-        draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);
+        draw_image("draw/bar.png", SCREEN_WIDTH / 2 ,83 /2);
+        draw_image("draw/guppy0kanan.png",482, 32);
+        draw_text("Rp. " + std::to_string(GUPPY_PRICE),12, 471, 59, 255, 255, 255);
+        draw_image("draw/Carnivorekanankecill.png",395,32);
+        draw_text("Rp. " + std::to_string(PIRANHA_PRICE),12, 377, 59, 255, 255, 255);
+        draw_image("draw/Diamond.png",302,32);
+        draw_text("Rp. " + std::to_string(duit),10, 282, 61, 255, 255, 255);
+        draw_text("SAVE",20, 33, 18, 255, 255, 255);
+        // draw_image("draw/button_save.png",590, 30);
+        // draw_image("draw/button_buy-guppy.png", 460, 30);
+        // draw_image("draw/button_buy-piranha.png", 300, 30);
+        // //draw_image("draw/button_buy-egg.png", 150, 40);
+        if (telur < 3){
+          string telurImg = "draw/State" + std::to_string(telur + 1) + ".png";
+          draw_image(telurImg, 575, 32);
+          draw_text("Rp. " + std::to_string(BASE_EGG_PRICE * (telur + 1)),12, 559, 59, 255, 255, 255);
+        }
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         // draw_image("aim.png", cx, cy);
 

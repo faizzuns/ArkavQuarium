@@ -47,11 +47,16 @@ public:
     double aa = 0;double bb = 0;
     for (int i = 0; i < xx; i++){
       aa =double(rand() % 620);
-      bb =double(rand() % 440);
+      bb =double(rand() % 360) + 80;
     }
-    if (beetweenX(randa.getX(), 20) && beetweenY(randa.getY(), 20) && getX() > 0  && getX() < 640 && getY() > 0 && getY() < 440) {
+    if ((beetweenX(randa.getX(), 20) && beetweenY(randa.getY(), 20)) && getX() > 0  && getX() < 640 && getY() > 80 && getY() < 440) {
       randa.setX(aa);
       randa.setY(bb);
+    }
+
+    if (randa.getX() < 20 && randa.getY() < 20){
+      randa.setX(320);
+      randa.setY(240);
     }
     moveGeneral(randa.getX(), randa.getY());
 

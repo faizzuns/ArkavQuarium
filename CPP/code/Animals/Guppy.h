@@ -57,6 +57,7 @@ public:
   void eat(LinkedList<FishFood> &listFood) {
     if (!listFood.isEmpty()) {
       int foodIdx = getNearestFood(listFood);
+      //int foodIdx = 0;
       FishFood foodTemp = listFood.get(foodIdx);
 
       if (beetweenX(foodTemp.getX(),5)){
@@ -68,7 +69,7 @@ public:
           if (totalEatenFood == PHASE_2 || totalEatenFood == PHASE_3) {
             nextPhase();
           }
-        }
+        }else moveGeneral(foodTemp.getX(),foodTemp.getY());
       }else{
         if (getX() < foodTemp.getX()){
           moveGeneral(foodTemp.getX(), foodTemp.getY());
@@ -76,12 +77,12 @@ public:
         }else if (getX() > foodTemp.getX()){
           moveGeneral(foodTemp.getX(), foodTemp.getY());
           setLookAt(LOOKING_LEFT);
-        }
+        } else randomMove();
       }
-    }
+    }else randomMove();
   }
   Coin makeCoin(int phase) {
-    Coin c(getX(), getY(), getCoinValue());
+    Coin c(getX(), getY(), getCoinValue() * BASE_COIN);
     return c;
   }
 
@@ -94,7 +95,7 @@ public:
     }
   }
 
-  int getNearestFood(LinkedList<FishFood> listFood) {
+  int getNearestFood(LinkedList<FishFood> &listFood) {
     //return index of nearest Food
     if (!listFood.isEmpty()){
       int n = listFood.size();

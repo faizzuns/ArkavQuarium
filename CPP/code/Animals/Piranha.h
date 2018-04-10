@@ -22,25 +22,17 @@ public:
           listGuppy.remove(guppyIdx);
           setStillFull(STATE_FULL);
           setCountingDead(STATE_DEAD);
-          cout<<"kenyang"<<endl;
-        }
+        }else moveGeneral(guppyTemp.getX(), guppyTemp.getY());
       }else{
         if (getX() < guppyTemp.getX()){
-          cout<<"belok kanan"<<endl;
-          moveRight();
+          moveGeneral(guppyTemp.getX(), guppyTemp.getY());
           setLookAt(LOOKING_RIGHT);
         }else if (getX() > guppyTemp.getX()){
-          moveLeft();
+          moveGeneral(guppyTemp.getX(), guppyTemp.getY());
           setLookAt(LOOKING_LEFT);
-          cout<<"belok kiri"<<endl;
-        }
+        } else randomMove();
       }
-
-      moveGeneral(guppyTemp.getX(), guppyTemp.getY());
-      if (getX() == guppyTemp.getX() && getY() == guppyTemp.getY()) {
-        listGuppy.remove(guppyIdx);
-      }
-    }
+    } else randomMove();
   }
 
   Coin makeCoin(int phase) {
@@ -49,7 +41,7 @@ public:
   	return c;
   }
 
-  int getNearestGuppy(LinkedList<Guppy> listGuppy) {
+  int getNearestGuppy(LinkedList<Guppy> &listGuppy) {
   	if (!listGuppy.isEmpty()){
       int n = listGuppy.size();
       int guppyIdx;

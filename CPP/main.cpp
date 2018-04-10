@@ -1,6 +1,9 @@
 #include "oop.hpp"
 #include <iostream>
 #include <math.h>
+#include <conio.h>
+#include <string>
+#include <fstream>
 #include <sstream>
 
 #include "code/Animals/Animals.h"
@@ -16,6 +19,8 @@
 
 const double speed = 75; // pixels per second
 
+#define BASE_EGG_PRICE 30
+
 namespace patch
 {
     template < typename T > std::string to_string( const T& n )
@@ -24,6 +29,67 @@ namespace patch
         stm << n ;
         return stm.str() ;
     }
+}
+
+void saveFile(int duit, int telur, LinkedList<Guppy> &listGuppy, LinkedList<Piranha> &listPiranha, LinkedList<FishFood> &listFishFood, LinkedList<Coin> &listCoin, Snail &snail){
+  ofstream myfile;
+
+  //duit
+  myfile.open("duit.txt");
+  if (!myfile.fail()){
+    myfile<<duit<<endl;
+    myfile.close();
+  }
+
+  myfile.open("telur.txt");
+  if (!myfile.fail()){
+    myfile<<telur<<endl;
+    myfile.close();
+  }
+
+  myfile.open("guppy.txt");
+  if (!myfile.fail()){
+    for (int i = 0; i < listGuppy.size(); i++){
+      Guppy g = listGuppy.get(i);
+      myfile<<g.getX()<<" "<<g.getY()<<" "<<g.getSpeed()<<" "<<g.getLookAt()<<" "<<g.getLifetime()<<" "<<g.getStillFull()<<" "<<g.getCountingDead()<<" "<<g.getRanda().getX()<<" "<<g.getRanda().getY()<<" "<<g.getPhase()<<" "<<g.getTotalEatenFood()<<" "<<g.getCoinValue()<<endl;
+    }
+    myfile.close();
+  }
+
+  myfile.open("piranha.txt");
+  if (!myfile.fail()){
+    for (int i = 0; i < listPiranha.size(); i++){
+      Piranha g = listPiranha.get(i);
+      myfile<<g.getX()<<" "<<g.getY()<<" "<<g.getSpeed()<<" "<<g.getLookAt()<<" "<<g.getLifetime()<<" "<<g.getStillFull()<<" "<<g.getCountingDead()<<" "<<g.getRanda().getX()<<" "<<g.getRanda().getY()<<endl;
+    }
+    myfile.close();
+  }
+
+  myfile.open("snail.txt");
+  if (!myfile.fail()){
+    Snail g = snail;
+    myfile<<g.getX()<<" "<<g.getY()<<" "<<g.getSpeed()<<" "<<g.getLookAt()<<endl;
+    myfile.close();
+  }
+
+  myfile.open("fishFood.txt");
+  if (!myfile.fail()){
+    for (int i = 0; i < listFishFood.size(); i++){
+      FishFood g = listFishFood.get(i);
+      myfile<<g.getX()<<" "<<g.getY()<<" "<<g.getSpeed()<<endl;
+    }
+    myfile.close();
+  }
+
+  myfile.open("coin.txt");
+  if (!myfile.fail()){
+    for (int i = 0; i < listCoin.size(); i++){
+      Coin g = listCoin.get(i);
+      myfile<<g.getX()<<" "<<g.getY()<<" "<<g.getSpeed()<<" "<<g.getValue()<<endl;
+    }
+    myfile.close();
+  }
+
 }
 
 int main( int argc, char* args[] )
@@ -36,6 +102,8 @@ int main( int argc, char* args[] )
     LinkedList<FishFood> listFishFood;
     LinkedList<Coin> listCoin;
     Snail snail(SCREEN_WIDTH / 2, 400);
+    int telur = 0;
+    int duit = 10;
 
     // Menghitung FPS
     int frames_passed = 0;
@@ -45,13 +113,170 @@ int main( int argc, char* args[] )
     // Posisi ikan
     double cy = SCREEN_HEIGHT / 2;
     double cx = SCREEN_WIDTH / 2;
-
-    int duit = 10;
-
     double midX = cx;
     double midY = cy;
-    Guppy g(midX, midY);
-    listGuppy.add(g);
+
+    bool load = true;
+
+    if (load){
+      //stream untuk membaca file
+       ifstream myfile;
+       //membuka file yang telah ada
+       myfile.open("duit.txt");
+       if (!myfile.fail()){
+         char data[100];
+         while (myfile >> data){
+           duit = stoi(data);
+         }
+         myfile.close();
+       }
+       cout<<duit<<endl;
+
+       myfile.open("telur.txt");
+       if (!myfile.fail()){
+         char data[100];
+         while (myfile >> data){
+           telur = stoi(data);
+         }
+         myfile.close();
+       }
+
+       myfile.open("guppy.txt");
+       if (!myfile.fail()){
+         char data[100];
+         while (myfile >> data){
+           double x =double(stoi(data));
+           myfile >> data;
+           double y = double(stoi(data));
+           myfile >> data;
+           double speed = GUPPY_SPEED;
+           myfile >> data;
+           int lookAt = stoi(data);
+           myfile >> data;
+           int lifetime = stoi(data);
+           myfile >> data;
+           int stillFull = stoi(data);
+           myfile >> data;
+           int countingDead = stoi(data);
+           myfile >> data;
+           double randaX = double(stoi(data));
+           myfile >> data;
+           double randaY = double(stoi(data));
+           myfile >> data;
+           int phase = stoi(data);
+           myfile >> data;
+           int totalEatenFood = stoi(data);
+           myfile >> data;
+           int coinValue = stoi(data);
+
+           Guppy g(x,y);
+           g.setLookAt(lookAt);
+           g.setLifetime(lifetime);
+           g.setStillFull(stillFull);
+           g.setCountingDead(countingDead);
+           g.setRandaX(randaX);
+           g.setRandaY(randaY);
+           g.setPhase(phase);
+           g.setTotalEatenFood(totalEatenFood);
+           g.setCoinValue(coinValue);
+
+           listGuppy.add(g);
+         }
+         myfile.close();
+       }
+
+       myfile.open("piranha.txt");
+       if (!myfile.fail()){
+         char data[100];
+         while (myfile >> data){
+           double x =double(stoi(data));
+           myfile >> data;
+           double y = double(stoi(data));
+           myfile >> data;
+           double speed = GUPPY_SPEED;
+           myfile >> data;
+           int lookAt = stoi(data);
+           myfile >> data;
+           int lifetime = stoi(data);
+           myfile >> data;
+           int stillFull = stoi(data);
+           myfile >> data;
+           int countingDead = stoi(data);
+           myfile >> data;
+           double randaX = double(stoi(data));
+           myfile >> data;
+           double randaY = double(stoi(data));
+
+           Piranha g(x,y);
+           g.setLookAt(lookAt);
+           g.setLifetime(lifetime);
+           g.setStillFull(stillFull);
+           g.setCountingDead(countingDead);
+           g.setRandaX(randaX);
+           g.setRandaY(randaY);
+
+           listPiranha.add(g);
+         }
+         myfile.close();
+       }
+
+       myfile.open("fishFood.txt");
+       if (!myfile.fail()){
+         char data[100];
+         while (myfile >> data){
+           double x =double(stoi(data));
+           myfile >> data;
+           double y = double(stoi(data));
+           myfile >> data;
+           double speed = GUPPY_SPEED;
+
+           FishFood g(x,y);
+
+           listFishFood.add(g);
+         }
+         myfile.close();
+       }
+
+    myfile.open("coin.txt");
+    if (!myfile.fail()){
+      char data[100];
+      while (myfile >> data){
+        double x =double(stoi(data));
+        myfile >> data;
+        double y = double(stoi(data));
+        myfile >> data;
+        double speed = GUPPY_SPEED;
+        myfile >> data;
+        int value = stoi(data);
+
+        Coin g(x,y,value);
+
+        listCoin.add(g);
+      }
+      myfile.close();
+    }
+
+    myfile.open("snail.txt");
+    if (!myfile.fail()){
+      char data[100];
+      while (myfile >> data){
+        double x =double(stoi(data));
+        myfile >> data;
+        double y = double(stoi(data));
+        myfile >> data;
+        double speed = GUPPY_SPEED;
+        myfile >> data;
+        int lookAt = stoi(data);
+
+        snail.setLookAt(lookAt);
+      }
+      myfile.close();
+    }
+
+   }else{
+     Guppy g(midX, midY);
+     listGuppy.add(g);
+   }
 
     bool running = true;
 
@@ -75,7 +300,6 @@ int main( int argc, char* args[] )
           listFishFood.getRef(i)->moveGeneral(listFishFood.get(i).getX(), 400);
 
           if (listFishFood.get(i).getY() > 400){
-            cout<<"huhui "<<i<<endl;
             listFishFood.remove(i);
           }else i++;
         }
@@ -170,8 +394,21 @@ int main( int argc, char* args[] )
                 listPiranha.add(p);
               }
               break;
+            case SDLK_t:
+              if (duit >= BASE_EGG_PRICE * (telur + 1)){
+                telur++;
+                duit -= BASE_EGG_PRICE * telur;
+              }
+              break;
+            case SDLK_q:
+              //save;
+              saveFile(duit, telur, listGuppy, listPiranha, listFishFood, listCoin, snail);
+              running = false;
+              break;
             }
         }
+
+        if (!running) break;
 
         //Mouse Event
         if (mouseX != -1 && mouseY != -1){
@@ -230,7 +467,7 @@ int main( int argc, char* args[] )
         //Piranha
         //lookAt
         for (int i = 0; i < listPiranha.size(); i++){
-          string lapar = listPiranha.get(i).notHungry() ? "" : "lapar";
+          string lapar = listPiranha.get(i).notHungry() ? "" : "";
           string img = listPiranha.get(i).getLookAt() == LOOKING_RIGHT ? "draw/Carnivorekanan" + lapar + ".png" : "draw/Carnivore" + lapar + ".png";
           draw_image(img, listPiranha.get(i).getX(), listPiranha.get(i).getY());
         }
@@ -239,6 +476,21 @@ int main( int argc, char* args[] )
         draw_text(jmlCoin, 18, 10, 10, 0, 0, 0);
         // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         draw_image("aim.png", cx, cy);
+
+        //check for win/lose
+        if (telur == 3){
+          //win
+          running = false;
+          draw_text("WIN", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
+          cout<<"WIN"<<endl;
+        }else{
+          cout<<duit<<" "<<(duit < GUPPY_PRICE)<< " " << GUPPY_PRICE<<endl;
+          if (listCoin.size() == 0 && listGuppy.size() == 0 && listPiranha.size() == 0 && duit < GUPPY_PRICE){
+            running = false;
+            draw_text("LOSE", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
+            cout<<"LOSE"<<endl;
+          }
+        }
         update_screen();
     }
 

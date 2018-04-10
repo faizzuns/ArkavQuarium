@@ -81,10 +81,8 @@ public:
     Node<T> *prev = NULL;
     Node<T> *now = head;
 
-    cout<<idx<<endl;
     int i = 0;
     while (i < idx){
-      cout<<"FAIZ HEBAT"<<endl;
       prev = now;
       now = now->getNext();
       i++;

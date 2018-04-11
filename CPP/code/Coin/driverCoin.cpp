@@ -6,13 +6,13 @@ int main(){
 
   Coin c(10,10,10);
 
-  c.getValue();
+  cout<< "Value Awal                    : "<< c.getValue() <<endl;
   c.setValue(100);
-  c.getValue();
+  cout<< "Value Akhir setelah setValue  : "<< c.getValue() <<endl;
 
-  cout<<c.getX()<<" "<<c.getY()<<endl;
+  cout<< "Posisi awal                   :(" << c.getX() <<","<<c.getY()<<")"<<endl;
   c.moveBottom();
-  cout<<c.getX()<<" "<<c.getY()<<endl;
+  cout<< "Posisi setelah move bottom    :(" << c.getX() <<","<<c.getY()<<")"<<endl;
 
   return 0;
 }

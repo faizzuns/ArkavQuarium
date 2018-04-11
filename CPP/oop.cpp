@@ -22,6 +22,12 @@ std::map<std::string, SDL_Surface*> loadedSurfaces;
 std::map<int, TTF_Font*> loadedFontSizes;
 SDL_Surface* gScreenSurface = NULL;
 
+//The music that will be played
+Mix_Music* music = NULL;
+
+//The sound effects that will be used
+
+
 bool init()
 {
     bool success = true;
@@ -48,7 +54,27 @@ bool init()
         {
             gScreenSurface = SDL_GetWindowSurface( sdlWindow );
         }
+        //Initialize SDL_mixer 
+	    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 ) {
+            return false;
+        } else {
+            music = Mix_LoadMUS("bgm.wav");
+
+            if(music == NULL){
+                return false;
+            } else {
+                Mix_PlayMusic(music, -1);
+            }
+        }
+        
     }
+
+    
+		
+			
+	
+		 
+	
 
     return success;
 }
@@ -81,6 +107,16 @@ SDL_Surface* loadSurface( std::string path )
 
     return loadedSurface;
 }
+
+// void make_music(){
+//     //Load the music
+//     music = Mix_LoadMUS( "Payung Teduh - Akad (Official Music Video).wav" );
+    
+//     while ( Mix_PlayingMusic() ) ;
+//     Mix_FreeMusic(music);
+//     //If there was a problem loading the music
+    
+//}
 
 void draw_image(std::string filename, int x, int y) {
     if (loadedSurfaces.count(filename) < 1) {

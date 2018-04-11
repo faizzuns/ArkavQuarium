@@ -1,11 +1,11 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#define GUPPY_SPEED 1.5
-#define PIRANHA_SPEED 1.7
+#define GUPPY_SPEED 0.8
+#define PIRANHA_SPEED 0.7
 #define FISH_SPEED 2
-#define SNAIL_SPEED 0.7
-#define COIN_SPEED 0.6
+#define SNAIL_SPEED 0.5
+#define COIN_SPEED 0.2
 #define FISH_FOOD_SPEED 0.4
 
 #define MOVE_TOP 0

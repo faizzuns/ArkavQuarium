@@ -120,6 +120,9 @@ int main( int argc, char* args[] )
 
     bool run = true;
 
+    
+
+
     while (run){
       clear_screen();
       draw_image("background.jpg", midX, midY);

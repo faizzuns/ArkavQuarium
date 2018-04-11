@@ -22,6 +22,8 @@ std::map<std::string, SDL_Surface*> loadedSurfaces;
 std::map<int, TTF_Font*> loadedFontSizes;
 SDL_Surface* gScreenSurface = NULL;
 
+Mix_Music* music = NULL;
+
 bool init()
 {
     bool success = true;
@@ -47,6 +49,17 @@ bool init()
         else
         {
             gScreenSurface = SDL_GetWindowSurface( sdlWindow );
+        }
+        if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 ) {
+            return false;
+        } else {
+            music = Mix_LoadMUS("bgm2.mp3");
+
+            if(music == NULL){
+                return false;
+            } else {
+                Mix_PlayMusic(music, -1);
+            }
         }
     }
 

@@ -308,10 +308,11 @@ int main( int argc, char* args[] )
    }
 
     bool running = true;
+    bool selesai = false;
 
     double prevtime = time_since_start();
 
-    while (running) {
+    while (running || !selesai) {
 
         mouseX = -1;
         mouseY = -1;
@@ -322,78 +323,65 @@ int main( int argc, char* args[] )
         handle_input(&mouseX,&mouseY);
         if (quit_pressed()) {
             running = false;
+            selesai = true;
         }
 
-        int i = 0;
-        while (i < listFishFood.size()){
-          listFishFood.getRef(i)->moveGeneral(listFishFood.get(i).getX(), 400);
+        if (running){
+          int i = 0;
+          while (i < listFishFood.size()){
+            listFishFood.getRef(i)->moveGeneral(listFishFood.get(i).getX(), 400);
 
-          if (listFishFood.get(i).getY() > 400){
-            listFishFood.remove(i);
-          }else i++;
-        }
-
-        i = 0;
-        while (i < listCoin.size()){
-          if (!listCoin.get(i).beetweenY(400, 2)){
-            listCoin.getRef(i)->moveGeneral(listCoin.get(i).getX(), 400);
+            if (listFishFood.get(i).getY() > 400){
+              listFishFood.remove(i);
+            }else i++;
           }
-          i++;
-        }
 
-        i = 0;
-        while (i < listGuppy.size()){
-          int j = listGuppy.getRef(i)->synchronize(listCoin);
-          if (j == 0){
-            listGuppy.remove(i);
-          }else {
-            if (j == 1){
-              //lapar
-              listGuppy.getRef(i)->eat(listFishFood);
+          i = 0;
+          while (i < listCoin.size()){
+            if (!listCoin.get(i).beetweenY(400, 2)){
+              listCoin.getRef(i)->moveGeneral(listCoin.get(i).getX(), 400);
+            }
+            i++;
+          }
+
+          i = 0;
+          while (i < listGuppy.size()){
+            int j = listGuppy.getRef(i)->synchronize(listCoin);
+            if (j == 0){
+              listGuppy.remove(i);
             }else {
-              // ga lapar
-              listGuppy.getRef(i)->randomMove();
+              if (j == 1){
+                //lapar
+                listGuppy.getRef(i)->eat(listFishFood);
+              }else {
+                // ga lapar
+                listGuppy.getRef(i)->randomMove();
+              }
+              i++;
             }
-            i++;
           }
-        }
 
-        i = 0;
-        while (i < listPiranha.size()){
-          int j = listPiranha.getRef(i)->synchronize(listCoin);
-          if (j == 0){
-            listPiranha.remove(i);
-          }else{
-            if (j == 1){
-              //laper
-              listPiranha.getRef(i)->eat(listGuppy, listCoin);
+          i = 0;
+          while (i < listPiranha.size()){
+            int j = listPiranha.getRef(i)->synchronize(listCoin);
+            if (j == 0){
+              listPiranha.remove(i);
             }else{
-              //ga laper
-              listPiranha.getRef(i)->randomMove();
+              if (j == 1){
+                //laper
+                listPiranha.getRef(i)->eat(listGuppy, listCoin);
+              }else{
+                //ga laper
+                listPiranha.getRef(i)->randomMove();
+              }
+              i++;
             }
-            i++;
           }
+
+          int dapat = snail.eat(listCoin);
+          duit += dapat;
         }
 
-        // Gerakkan ikan selama tombol panah ditekan
-        // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
-        // konstan pada komputer yang berbeda.
-        for (auto key : get_pressed_keys()) {
-            switch (key) {
-            case SDLK_UP:
-                cy -= speed * sec_since_last;
-                break;
-            case SDLK_DOWN:
-                cy += speed * sec_since_last;
-                break;
-            case SDLK_LEFT:
-                cx -= speed * sec_since_last;
-                break;
-            case SDLK_RIGHT:
-                cx += speed * sec_since_last;
-                break;
-            }
-        }
         //Mouse Event
         if (mouseX != -1 && mouseY != -1){
           cout<<mouseX<<" "<<mouseY<<endl;
@@ -404,12 +392,15 @@ int main( int argc, char* args[] )
             }
             i++;
           }
-          if (i != listCoin.size()){
+          if (!running) {
+            selesai = true;
+          }else if (i != listCoin.size()){
             duit += listCoin.get(i).getValue();
             listCoin.remove(i);
           }else if (mouseX > 54 - 30 && mouseX < 54 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
             saveFile(duit, telur, listGuppy, listPiranha, listFishFood, listCoin, snail);
             running = false;
+            selesai = true;
             break;
           }else if (mouseX > 482 - 30 && mouseX < 482 + 30 && mouseY > 32 - 30 && mouseY < 32 + 30){
             if (duit >= GUPPY_PRICE){
@@ -468,9 +459,7 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
-        //snail.eat(listCoin);
-        int dapat = snail.eat(listCoin);
-        duit += dapat;
+
         // Gambar ikan di posisi yang tepat.
         //cx += speed * sec_since_last;
         clear_screen();
@@ -532,13 +521,14 @@ int main( int argc, char* args[] )
         if (telur == 3){
           //win
           running = false;
-          draw_text("WIN", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
+          draw_text("WIN",50, SCREEN_WIDTH / 2 - 35, SCREEN_HEIGHT / 2 - 35, 0, 0, 0);
         }else{
           if (listCoin.size() == 0 && listGuppy.size() == 0 && listPiranha.size() == 0 && duit < GUPPY_PRICE){
             running = false;
-            draw_text("LOSE", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10, 0, 0, 0);
+            draw_text("LOSE",50, SCREEN_WIDTH / 2 - 35, SCREEN_HEIGHT / 2 - 35, 0, 0, 0);
           }
         }
+
         update_screen();
     }
 

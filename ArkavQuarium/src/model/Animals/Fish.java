@@ -4,6 +4,8 @@ import model.Coin;
 import model.Coordinate;
 import model.LinkedList;
 
+import java.util.Random;
+
 public class Fish extends Animals{
 
     public static int STATE_FULL = 700;
@@ -22,8 +24,7 @@ public class Fish extends Animals{
         setStillFull(STATE_FULL);
         setCountingDead(STATE_DEAD);
         setLookAt(LOOKING_RIGHT);
-        randa.setX(x);
-        randa.setY(y);
+        randa = new Coordinate(x, y);
     }
 
     public int getLifetime() {
@@ -59,12 +60,11 @@ public class Fish extends Animals{
     }
 
     public void randomMove(){
-        int xx = (int) (Math.random() % 10);
-        double aa = 0;double bb = 0;
-        for (int i = 0; i < xx; i++){
-            aa = Math.random() % 620;
-            bb =Math.random() % 360 + 80;
-        }
+        double aa,bb;
+        Random r = new Random();
+        aa = 0 + (620) * r.nextDouble();
+        bb = 80 + (360 - 80) * r.nextDouble();
+
         if ((beetweenX(randa.getX(), 20) && beetweenY(randa.getY(), 20)) && getX() > 0  && getX() < 640 && getY() > 80 && getY() < 440) {
             randa.setX(aa);
             randa.setY(bb);
@@ -74,6 +74,7 @@ public class Fish extends Animals{
             randa.setX(320);
             randa.setY(240);
         }
+
         moveGeneral(randa.getX(), randa.getY());
 
         if (getX() < randa.getX()){

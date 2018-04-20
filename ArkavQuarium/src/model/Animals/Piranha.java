@@ -58,7 +58,7 @@ public class Piranha extends Fish {
         }else return 0;
     }
 
-    int synchronize(LinkedList<Coin> listCoin) {
+    public int synchronize(LinkedList<Coin> listCoin) {
         setLifetime((getLifetime() + 1) % 1000);
         if (notHungry()) {
             setStillFull(getStillFull() - 1);
@@ -75,4 +75,15 @@ public class Piranha extends Fish {
             }
         }
     }
+
+    public String getImagePath(){
+        String s = PATH_DRAWABLE +  "Carnivore";
+
+        s += LOOKING_RIGHT == getLookAt() ? "kanan" : "";
+
+        s += ".png";
+
+        return s;
+    }
+
 }

@@ -26,4 +26,8 @@ public class Coin extends Move{
     public void setValue(int value) {
         this.value = value;
     }
+
+    public String getImagePath(){
+        return PATH_DRAWABLE + "Diamond.png";
+    }
 }

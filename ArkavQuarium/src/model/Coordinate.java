@@ -1,9 +1,17 @@
 package model;
 
+/**
+ *
+ */
 public class Coordinate {
     private double x;
     private double y;
 
+    protected final String PATH_DRAWABLE = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\";
+
+    /**
+     *
+     */
     public Coordinate() {
         x = 0;
         y = 0;

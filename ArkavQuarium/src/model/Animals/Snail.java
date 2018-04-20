@@ -53,4 +53,9 @@ public class Snail extends Animals{
             return 0;
         }
     }
+
+    public String getImagePath(){
+        if (getLookAt() == LOOKING_RIGHT) return PATH_DRAWABLE + "siputkanan.png";
+        else return PATH_DRAWABLE + "siputkiri.png";
+    }
 }

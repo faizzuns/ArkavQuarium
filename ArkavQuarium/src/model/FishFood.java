@@ -9,4 +9,8 @@ public class FishFood extends Move {
     public FishFood(double x, double y) {
         super(x, y, FISH_FOOD_SPEED);
     }
+
+    public String getImagePath(){
+        return PATH_DRAWABLE + "burger.png";
+    }
 }

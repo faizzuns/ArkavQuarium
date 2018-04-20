@@ -133,4 +133,16 @@ public class Guppy extends Fish {
             }
         }
     }
+
+    public String getImagePath(){
+        String s = PATH_DRAWABLE +  "guppy";
+
+        s += String.valueOf(getPhase());
+        s += LOOKING_RIGHT == getLookAt() ? "kanan" : "kiri";
+        if (!notHungry()) s += "lapar";
+
+        s += ".png";
+
+        return s;
+    }
 }

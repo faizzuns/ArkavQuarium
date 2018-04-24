@@ -32,9 +32,9 @@ public class Aquarium extends JPanel {
     public static int PLAY = 1;
     public static int FINISH = 2;
 
-    private final String CURRENT_IMAGE = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png";
-    private final String BACKGROUND_IMAGE = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\background.jpg";
-    private final String BAR_IMAGE = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\bar.png";
+    private final String CURRENT_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png";
+    private final String BACKGROUND_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\background.jpg";
+    private final String BAR_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\bar.png";
 
     private LinkedList<Guppy> listGuppy;
     private LinkedList<Piranha> listPiranha;
@@ -676,8 +676,8 @@ public class Aquarium extends JPanel {
         g.drawImage(readImage(BACKGROUND_IMAGE), 0, 0, null);
 
         if (status == HOME){
-            g.drawImage(readImage("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\button_start.png"), SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 - 50, null);
-            g.drawImage(readImage("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\button_load.png"), SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 + 50, null);
+            g.drawImage(readImage("E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\button_start.png"), SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 - 50, null);
+            g.drawImage(readImage("E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\button_load.png"), SCREEN_WIDTH / 2 - 45, SCREEN_HEIGHT / 2 + 50, null);
             return;
         }
 
@@ -691,22 +691,22 @@ public class Aquarium extends JPanel {
         g.drawString("SAVE", 40, 35);
 
         //beli telor
-        String telorImg = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\State";
+        String telorImg = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\State";
         telorImg += String.valueOf(telur + 1) + ".png";
         g.drawImage(readImage(telorImg), 550, 8, null);
         String hargaTelor = "Rp. " + BASE_EGG_PRICE * (telur + 1);
         g.drawString(hargaTelor, 556, 70);
 
         //beli guppy
-        g.drawImage(readImage("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png"), 460, 10, null);
+        g.drawImage(readImage("E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png"), 460, 10, null);
         g.drawString("Rp. 5", 465, 70);
 
         //beli piranha
-        g.drawImage(readImage("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\Carnivorekanankecill.png"), 370, 10, null);
+        g.drawImage(readImage("E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\Carnivorekanankecill.png"), 370, 10, null);
         g.drawString("Rp. 20", 370, 70);
 
         //uang
-        g.drawImage(readImage("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\Diamond.png"), 285, 15, null);
+        g.drawImage(readImage("E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\Diamond.png"), 285, 15, null);
         String uang = "Rp. " + duit;
         g.drawString(uang, 280, 70);
 

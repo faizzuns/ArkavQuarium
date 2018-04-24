@@ -18,7 +18,4 @@ public class CoinTest {
         assertEquals(100, coin.getValue());
     }
 
-    @Test
-    public void getImagePath() {
-    }
 }

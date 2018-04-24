@@ -44,12 +44,4 @@ public class PiranhaTest {
         int idxGuppy = piranha.getNearestGuppy(listGuppy);
         assertEquals(0, idxGuppy);
     }
-
-    @Test
-    public void synchronize() {
-    }
-
-    @Test
-    public void getImagePath() {
-    }
 }

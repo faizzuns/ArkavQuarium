@@ -25,7 +25,4 @@ public class SnailTest {
         assertEquals(0, snail.getNearestCoin(listCoin));
     }
 
-    @Test
-    public void getImagePath() {
-    }
 }

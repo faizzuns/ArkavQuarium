@@ -87,11 +87,4 @@ public class GuppyTest {
         assertEquals(1, idxFood);
     }
 
-    @Test
-    public void synchronize() {
-    }
-
-    @Test
-    public void getImagePath() {
-    }
 }

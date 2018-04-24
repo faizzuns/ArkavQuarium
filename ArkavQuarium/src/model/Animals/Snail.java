@@ -32,7 +32,7 @@ public class Snail extends Animals{
         return 0;
     }
 
-    int getNearestCoin(LinkedList<Coin> listCoin) {
+    public int getNearestCoin(LinkedList<Coin> listCoin) {
         if (!listCoin.isEmpty()){
             int n = listCoin.size();
             int coinIdx;

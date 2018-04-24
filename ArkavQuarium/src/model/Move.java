@@ -11,11 +11,11 @@ import static java.lang.StrictMath.sin;
  */
 public class Move extends Coordinate{
 
-    protected static double GUPPY_SPEED = 0.5;
-    protected static double PIRANHA_SPEED = 0.7;
-    protected static double SNAIL_SPEED = 0.35;
-    static double COIN_SPEED = 0.25;
-    static double FISH_FOOD_SPEED = 0.2;
+    protected static final double GUPPY_SPEED = 0.5;
+    protected static final double PIRANHA_SPEED = 0.7;
+    protected static final double SNAIL_SPEED = 0.35;
+    static final double COIN_SPEED = 0.25;
+    static final double FISH_FOOD_SPEED = 0.2;
 
     private double speed;
 

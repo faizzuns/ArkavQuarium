@@ -1,6 +1,5 @@
 package model.Animals;
 
-import model.Coin;
 import model.Coordinate;
 
 import java.util.Random;
@@ -84,7 +83,5 @@ public class Fish extends Animals{
     public boolean notHungry(){
         return stillFull != 0;
     }
-
-    public Coin makeCoin(int phase){return null;}
 
 }

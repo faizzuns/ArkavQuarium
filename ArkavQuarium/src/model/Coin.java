@@ -7,9 +7,9 @@ package model;
  * memiliki atribut value
  */
 public class Coin extends Move{
-    public static int BASE_COIN = 10;
+    public static final int BASE_COIN = 10;
 
-    private int value;
+    private final int value;
 
     public Coin(double x, double y, int value) {
         super(x, y, COIN_SPEED);

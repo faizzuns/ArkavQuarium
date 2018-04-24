@@ -22,14 +22,14 @@ import static model.Animals.Fish.PIRANHA_PRICE;
 
 public class Aquarium extends JPanel {
     private static final int BASE_EGG_PRICE = 30;
-    private static int SCREEN_WIDTH = 640;
-    private static int SCREEN_HEIGHT = 480;
-    private static int WIN = 1;
-    private static int LOAD = 0;
-    private static int NEW = 1;
-    private static int HOME = 0;
-    private static int PLAY = 1;
-    private static int FINISH = 2;
+    private static final int SCREEN_WIDTH = 640;
+    private static final int SCREEN_HEIGHT = 480;
+    private static final int WIN = 1;
+    private static final int LOAD = 0;
+    private static final int NEW = 1;
+    private static final int HOME = 0;
+    private static final int PLAY = 1;
+    private static final int FINISH = 2;
 
     private LinkedList<Guppy> listGuppy;
     private LinkedList<Piranha> listPiranha;

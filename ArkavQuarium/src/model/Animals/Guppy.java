@@ -77,7 +77,7 @@ public class Guppy extends Fish {
             }
         }else randomMove();
     }
-    public Coin makeCoin(int phase) {
+    public Coin makeCoin() {
         return new Coin(getX(), getY(), getCoinValue() * BASE_COIN);
     }
 
@@ -114,7 +114,7 @@ public class Guppy extends Fish {
     public int synchronize(LinkedList<Coin> listCoin) {
         setLifetime((getLifetime() + 1) % 1000);
         if (getLifetime() % COIN_PERIODIC == 0) {
-            listCoin.add(makeCoin(0));
+            listCoin.add(makeCoin());
         }
         if (notHungry()) {
             setStillFull(getStillFull() - 1);

@@ -8,7 +8,7 @@ package model;
  * @param <T> Tipe Object dari kelas Node
  */
 class Node<T> {
-    private T data;
+    private final T data;
     private Node<T> next;
 
     /**

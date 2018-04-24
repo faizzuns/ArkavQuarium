@@ -58,7 +58,7 @@ public class Piranha extends Fish {
         }else return 0;
     }
 
-    public int synchronize(LinkedList<Coin> listCoin) {
+    public int synchronize() {
         setLifetime((getLifetime() + 1) % 1000);
         if (notHungry()) {
             setStillFull(getStillFull() - 1);

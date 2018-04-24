@@ -7,8 +7,8 @@ import model.Move;
  * memiliki atribut lookAt
  */
 public class Animals extends Move {
-    public static int LOOKING_LEFT = 0;
-    public static int LOOKING_RIGHT = 1;
+    static int LOOKING_LEFT = 0;
+    static int LOOKING_RIGHT = 1;
 
     private int lookAt;
 

@@ -8,14 +8,12 @@ import static model.Coin.BASE_COIN;
 
 public class Guppy extends Fish {
 
-    public static int GUPPY_COIN = 3;
-    public static int PHASE_2 = 5;
-    public static int PHASE_3 = 10;
-    public static int MAX_PHASE = 3;
-    public static int COIN_VALUE_PHASE_1 = 1;
-    public static int COIN_VALUE_PHASE_2 = 2;
-    public static int COIN_VALUE_PHASE_3 = 3;
-    public static int COIN_PERIODIC = 400;
+    private static final int PHASE_2 = 5;
+    private static final int PHASE_3 = 10;
+    public static final int COIN_VALUE_PHASE_1 = 1;
+    public static final int COIN_VALUE_PHASE_2 = 2;
+    private static final int COIN_VALUE_PHASE_3 = 3;
+    private static final int COIN_PERIODIC = 400;
 
     private int phase;
     private int totalEatenFood;

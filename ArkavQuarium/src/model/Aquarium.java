@@ -22,11 +22,11 @@ import static model.Animals.Fish.PIRANHA_PRICE;
 
 public class Aquarium extends JPanel {
     private static final int BASE_EGG_PRICE = 30;
-    public static int SCREEN_WIDTH = 640;
-    public static int SCREEN_HEIGHT = 480;
+    private static int SCREEN_WIDTH = 640;
+    private static int SCREEN_HEIGHT = 480;
     private static int WIN = 1;
     private static int LOAD = 0;
-    public static int NEW = 1;
+    private static int NEW = 1;
     private static int HOME = 0;
     private static int PLAY = 1;
     private static int FINISH = 2;
@@ -63,8 +63,7 @@ public class Aquarium extends JPanel {
         listFishFood = new LinkedList<>();
         listCoin = new LinkedList<>();
         snail = new Snail(SCREEN_WIDTH / 2, 400);
-        int DEFAULT_VALUE = -1;
-        playCategory = DEFAULT_VALUE;
+        playCategory = -1;
     }
 
     private BufferedImage readImage(String path) {
@@ -169,7 +168,7 @@ public class Aquarium extends JPanel {
 
         i = 0;
         while (i < listPiranha.size()){
-            int j = listPiranha.get(i).synchronize(listCoin);
+            int j = listPiranha.get(i).synchronize();
             if (j == 0){
                 listPiranha.remove(i);
             }else{

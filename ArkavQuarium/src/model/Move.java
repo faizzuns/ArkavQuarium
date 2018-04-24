@@ -11,24 +11,13 @@ import static java.lang.StrictMath.sin;
  */
 public class Move extends Coordinate{
 
-    public static double GUPPY_SPEED = 0.5;
-    public static double PIRANHA_SPEED = 0.7;
-    public static double SNAIL_SPEED = 0.35;
-    public static double COIN_SPEED = 0.25;
-    public static double FISH_FOOD_SPEED = 0.2;
+    protected static double GUPPY_SPEED = 0.5;
+    protected static double PIRANHA_SPEED = 0.7;
+    protected static double SNAIL_SPEED = 0.35;
+    static double COIN_SPEED = 0.25;
+    static double FISH_FOOD_SPEED = 0.2;
 
     private double speed;
-
-    /**
-     * Constructor berparameter
-     * dengan parameter speed yang akan mengassign ke atribut kelas speed
-     * dan akan memanggil default Constructor dari Kelas Coordinate
-     *
-     * @param speed speed entititas
-     */
-    public Move(double speed) {
-        this.speed = speed;
-    }
 
     /**
      * Constructor berparameter

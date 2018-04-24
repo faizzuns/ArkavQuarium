@@ -2,16 +2,15 @@ package model.Animals;
 
 import model.Coin;
 import model.Coordinate;
-import model.LinkedList;
 
 import java.util.Random;
 
 public class Fish extends Animals{
 
-    public static int STATE_FULL = 700;
-    public static int STATE_DEAD = 1000;
-    public static int GUPPY_PRICE = 5;
-    public static int PIRANHA_PRICE = 20;
+    public static final int STATE_FULL = 700;
+    public static final int STATE_DEAD = 1000;
+    public static final int GUPPY_PRICE = 5;
+    public static final int PIRANHA_PRICE = 20;
 
     private int lifetime;
     private int stillFull;
@@ -88,5 +87,4 @@ public class Fish extends Animals{
 
     public Coin makeCoin(int phase){return null;}
 
-    public int synhronize(LinkedList<Coin> listCoin){return 0;}
 }

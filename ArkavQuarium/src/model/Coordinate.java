@@ -14,7 +14,7 @@ public class Coordinate {
      *Default Constructor
      * menginisiasi x dan y dengan nilai DEFAULT_VALUE
      */
-    public Coordinate() {
+    Coordinate() {
         int DEFAULT_VALUE = 0;
         x = DEFAULT_VALUE;
         y = DEFAULT_VALUE;

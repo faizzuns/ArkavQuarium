@@ -7,7 +7,7 @@ package model;
  *
  * @param <T> Tipe Object dari kelas Node
  */
-public class Node<T> {
+class Node<T> {
     private T data;
     private Node<T> next;
 
@@ -17,7 +17,7 @@ public class Node<T> {
      *
      * @param data data
      */
-    public Node(T data) {
+    Node(T data) {
         this.data = data;
         this.next = null;
     }
@@ -27,7 +27,7 @@ public class Node<T> {
      *
      * @return atribut kelas data
      */
-    public T getData() {
+    T getData() {
         return data;
     }
 
@@ -36,7 +36,7 @@ public class Node<T> {
      *
      * @return Node yang ditunjuk oleh kelas ini
      */
-    public Node<T> getNext() {
+    Node<T> getNext() {
         return next;
     }
 
@@ -45,7 +45,7 @@ public class Node<T> {
      *
      * @param next data node
      */
-    public void setNext(Node<T> next) {
+    void setNext(Node<T> next) {
         this.next = next;
     }
 }

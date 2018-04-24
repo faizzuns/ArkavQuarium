@@ -45,12 +45,12 @@ public class LinkedList<T> {
      */
     public boolean add(T element){
         if (head == null){
-            head = new Node<T>(element);
+            head = new Node<>(element);
         }
         else{
             Node<T> temp = head;
             while (temp.getNext() != null) temp = temp.getNext();
-            temp.setNext(new Node<T>(element));
+            temp.setNext(new Node<>(element));
         }
         return true;
     }

@@ -24,17 +24,12 @@ public class Aquarium extends JPanel {
     private static final int BASE_EGG_PRICE = 30;
     public static int SCREEN_WIDTH = 640;
     public static int SCREEN_HEIGHT = 480;
-    public static int LOSE = 0;
-    public static int WIN = 1;
-    public static int LOAD = 0;
+    private static int WIN = 1;
+    private static int LOAD = 0;
     public static int NEW = 1;
-    public static int HOME = 0;
-    public static int PLAY = 1;
-    public static int FINISH = 2;
-
-    private final String CURRENT_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png";
-    private final String BACKGROUND_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\background.jpg";
-    private final String BAR_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\bar.png";
+    private static int HOME = 0;
+    private static int PLAY = 1;
+    private static int FINISH = 2;
 
     private LinkedList<Guppy> listGuppy;
     private LinkedList<Piranha> listPiranha;
@@ -59,14 +54,17 @@ public class Aquarium extends JPanel {
         this.defaultImage = ImageIO.read(new File(defaultObjectImagePath));
         this.images = new HashMap<>();
 
-        this.fps = 1000000000L / 128L;
+        long top = 1000000000L;
+        long bottom = 128L;
+        this.fps = top/ bottom;
 
-        listGuppy = new LinkedList<Guppy>();
-        listPiranha = new LinkedList<Piranha>();
-        listFishFood = new LinkedList<FishFood>();
-        listCoin = new LinkedList<Coin>();
+        listGuppy = new LinkedList<>();
+        listPiranha = new LinkedList<>();
+        listFishFood = new LinkedList<>();
+        listCoin = new LinkedList<>();
         snail = new Snail(SCREEN_WIDTH / 2, 400);
-        playCategory = -1;
+        int DEFAULT_VALUE = -1;
+        playCategory = DEFAULT_VALUE;
     }
 
     private BufferedImage readImage(String path) {
@@ -91,7 +89,7 @@ public class Aquarium extends JPanel {
         playAquarium();
     }
 
-    public void playAquarium(){
+    private void playAquarium(){
         status = PLAY;
         long lastFrameStart = System.nanoTime();
         long now;
@@ -110,6 +108,7 @@ public class Aquarium extends JPanel {
                     break;
                 }else{
                     if (listCoin.size() == 0 && listGuppy.size() == 0 && listPiranha.size() == 0 && duit < GUPPY_PRICE){
+                        int LOSE = 0;
                         setResult(LOSE);
                         break;
                     }
@@ -123,15 +122,17 @@ public class Aquarium extends JPanel {
         }
     }
 
-    public void setResult(int result){
+    private void setResult(int result){
         status = FINISH;
-        res = WIN == result ? "WIN" : "LOSE";
+        String WINNING = "WIN";
+        String LOSES = "LOSE";
+        res = WIN == result ? WINNING : LOSES;
         jFrame.invalidate();
         jFrame.validate();
         jFrame.repaint();
     }
 
-    public void syncAll(){
+    private void syncAll(){
         int i = 0;
         while (i < listFishFood.size()){
             listFishFood.get(i).moveGeneral(listFishFood.get(i).getX(), 400);
@@ -271,7 +272,7 @@ public class Aquarium extends JPanel {
         });
     }
 
-    public void saveFile(){
+    private void saveFile(){
         String fileName;
 
         //duit
@@ -426,7 +427,7 @@ public class Aquarium extends JPanel {
 
     }
 
-    public void readFile(){
+    private void readFile(){
         String fileName, line;
 
         //duit
@@ -662,7 +663,7 @@ public class Aquarium extends JPanel {
         }
     }
 
-    public void initDefault(){
+    private void initDefault(){
         duit = 10;
         telur = 0;
         listGuppy.add(new Guppy(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));
@@ -673,6 +674,7 @@ public class Aquarium extends JPanel {
         super.paintComponent(g);
         setBackground(Color.WHITE);
         g.setColor(Color.WHITE);
+        String BACKGROUND_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\background.jpg";
         g.drawImage(readImage(BACKGROUND_IMAGE), 0, 0, null);
 
         if (status == HOME){
@@ -685,6 +687,7 @@ public class Aquarium extends JPanel {
             g.drawString(res, SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 - 30);
         }
 
+        String BAR_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\bar.png";
         g.drawImage(readImage(BAR_IMAGE), 0, 0, null);
 
         //save

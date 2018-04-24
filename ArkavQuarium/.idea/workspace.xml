@@ -2,48 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="113d224d-028a-4ebd-8d38-cc822fb2c339" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/FishTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/PiranhaTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/CoinTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/CoordinateTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/FishFoodTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/GuppyTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/MoveTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/test/SnailTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/CoinTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/CoordinateTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/FishFoodTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/FishTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/GuppyTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/MoveTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/PiranhaTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/SnailTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/Animals.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/Fish.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/Guppy.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/Piranha.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Animals/Snail.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Aquarium.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Coin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Coordinate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/FishFood.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/LinkedList.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Move.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Node.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Aquarium$1.class" afterPath="$PROJECT_DIR$/out/production/ArkavQuarium/model/Aquarium$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArkavQuarium.iml" afterPath="$PROJECT_DIR$/ArkavQuarium.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coin.txt" afterPath="$PROJECT_DIR$/coin.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/duit.txt" afterPath="$PROJECT_DIR$/duit.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guppy.txt" afterPath="$PROJECT_DIR$/guppy.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/piranha.txt" afterPath="$PROJECT_DIR$/piranha.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snail.txt" afterPath="$PROJECT_DIR$/snail.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Animals/Snail.java" afterPath="$PROJECT_DIR$/src/model/Animals/Snail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Aquarium.java" afterPath="$PROJECT_DIR$/src/model/Aquarium.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Coordinate.java" afterPath="$PROJECT_DIR$/src/model/Coordinate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telur.txt" afterPath="$PROJECT_DIR$/telur.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Animals/Animals.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Animals/Fish.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Animals/Guppy.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Animals/Piranha.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Animals/Snail.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Aquarium.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Coin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Coordinate.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/FishFood.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/LinkedList.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Move.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/Node.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/CoinTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/CoordinateTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/FishFoodTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/FishTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/GuppyTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/MoveTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/PiranhaTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/SnailTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,17 +35,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Aquarium.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Aquarium.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Aquarium.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+            <state relative-caret-position="241">
+              <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-                <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-                <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-                <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Snail.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Snail.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Animals/Snail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="170">
+              <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -121,16 +97,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -160,12 +126,9 @@
       <file leaf-file-name="Coin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Coin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-              <folding>
-                <element signature="e#441#442#0" expanded="true" />
-                <element signature="e#493#494#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,7 +180,6 @@
         <option value="$PROJECT_DIR$/duit.txt" />
         <option value="$PROJECT_DIR$/src/model/Animals/Point.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/model/Aquarium.java" />
         <option value="$PROJECT_DIR$/src/model/LinkedList.java" />
         <option value="$PROJECT_DIR$/src/model/Coin.java" />
         <option value="$PROJECT_DIR$/src/model/Move.java" />
@@ -226,6 +188,7 @@
         <option value="$PROJECT_DIR$/src/model/FishFood.java" />
         <option value="$PROJECT_DIR$/src/model/Animals/Animals.java" />
         <option value="$PROJECT_DIR$/src/model/Animals/Snail.java" />
+        <option value="$PROJECT_DIR$/src/model/Aquarium.java" />
       </list>
     </option>
   </component>
@@ -262,32 +225,6 @@
             <path>
               <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
               <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -300,8 +237,7 @@
               <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
               <item name="ArkavQuarium" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="Animals" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ArkavQuarium" type="b2602c69:ProjectViewProjectNode" />
@@ -433,9 +369,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -446,7 +384,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30711043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30711043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -458,7 +396,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -474,20 +411,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/Aquarium.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11730">
-          <caret line="690" column="35" lean-forward="true" selection-start-line="690" selection-start-column="35" selection-end-line="690" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -504,10 +427,6 @@
           <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -535,10 +454,6 @@
           <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -594,10 +509,6 @@
           <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -653,10 +564,6 @@
           <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -801,39 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Coordinate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Coin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding>
-            <element signature="e#441#442#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Aquarium.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="15" lean-forward="false" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#syncAll#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#setContent#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#saveFile#0;class#Aquarium#0" expanded="false" />
-            <element signature="method#readFile#0;class#Aquarium#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Animals/Animals.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -850,11 +724,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/PiranhaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Animals/Snail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="170">
+          <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Coordinate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="3" lean-forward="false" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Coin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Aquarium.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

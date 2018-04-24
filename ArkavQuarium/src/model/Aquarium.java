@@ -684,7 +684,7 @@ public class Aquarium extends JPanel {
         if (status == FINISH){
             g.drawString(res, SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 - 30);
         }
-        
+
         g.drawImage(readImage(BAR_IMAGE), 0, 0, null);
 
         //save

@@ -3,12 +3,30 @@ package model.Animals;
 import model.Coin;
 import model.LinkedList;
 
+/**
+ * Kelas Snail merupakan kelas yang inheritance dari kelas Animal
+ */
 public class Snail extends Animals{
+    private int DEFAULT_VALUE = 0;
 
+    /**
+     * Constructor berparatemer
+     * akan memanggil constructor animals dengan
+     * parameter x dan y
+     *
+     * @param x koordinat x
+     * @param y koordinat y
+     */
     public Snail(double x, double y) {
         super(x, y, SNAIL_SPEED);
     }
 
+    /**
+     *
+     * @param listCoin list of coin yang akan di olah didalam
+     * @return mengembalikan value coin yang berhasil dimakan,
+     * akan mengembalikan DEFAULT_VALUE jika tidak berhasil makan
+     */
     public int eat(LinkedList<Coin> listCoin) {
         if (!listCoin.isEmpty()) {
             int coinIdx = getNearestCoin(listCoin);
@@ -29,9 +47,15 @@ public class Snail extends Animals{
                 }
             }
         }
-        return 0;
+        return DEFAULT_VALUE;
     }
 
+    /**
+     * method ini menerima parameter listCoin
+     *
+     * @param listCoin  listCoin
+     * @return mengembalikan indeks coin dari listCoin
+     */
     int getNearestCoin(LinkedList<Coin> listCoin) {
         if (!listCoin.isEmpty()){
             int n = listCoin.size();
@@ -50,10 +74,14 @@ public class Snail extends Animals{
             }
             return coinIdx;
         } else {
-            return 0;
+            return DEFAULT_VALUE;
         }
     }
 
+    /**
+     *
+     * @return mengembalikan path image untuk snail
+     */
     public String getImagePath(){
         if (getLookAt() == LOOKING_RIGHT) return PATH_DRAWABLE + "siputkanan.png";
         else return PATH_DRAWABLE + "siputkiri.png";

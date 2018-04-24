@@ -1,7 +1,12 @@
 package model;
 
+/**
+ * Kelas yang merepresentasikan Coin yang dihasilkan Ikan
+ * Inheritance ke Kelas Move
+ *
+ * memiliki atribut value
+ */
 public class Coin extends Move{
-
     public static int BASE_COIN = 10;
 
     private int value;
@@ -11,20 +16,8 @@ public class Coin extends Move{
         this.value = value;
     }
 
-    public static int getBaseCoin() {
-        return BASE_COIN;
-    }
-
-    public static void setBaseCoin(int baseCoin) {
-        BASE_COIN = baseCoin;
-    }
-
     public int getValue() {
         return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
     }
 
     public String getImagePath(){

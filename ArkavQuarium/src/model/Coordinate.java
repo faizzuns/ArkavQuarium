@@ -8,7 +8,7 @@ public class Coordinate {
     private double x;
     private double y;
 
-    protected final String PATH_DRAWABLE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\";
+    protected final String PATH_DRAWABLE = "D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\";
 
     /**
      *Default Constructor

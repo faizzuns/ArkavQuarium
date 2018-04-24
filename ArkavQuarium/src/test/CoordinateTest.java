@@ -8,7 +8,7 @@ import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class CoordinateTest {
-    Coordinate coordinate;
+    private Coordinate coordinate;
 
     @BeforeMethod
     public void setUp() {

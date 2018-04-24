@@ -12,7 +12,7 @@ public class SnailTest {
     @Test
     public void eat() {
         Snail snail = new Snail(0,0);
-        LinkedList<Coin> listCoin = new LinkedList<Coin>();
+        LinkedList<Coin> listCoin = new LinkedList<>();
         listCoin.add(new Coin(0,0, 25));
         assertEquals(25, snail.eat(listCoin));
     }
@@ -20,7 +20,7 @@ public class SnailTest {
     @Test
     public void getNearestCoin() {
         Snail snail = new Snail(0,0);
-        LinkedList<Coin> listCoin = new LinkedList<Coin>();
+        LinkedList<Coin> listCoin = new LinkedList<>();
         listCoin.add(new Coin(0,0, 25));
         assertEquals(0, snail.getNearestCoin(listCoin));
     }

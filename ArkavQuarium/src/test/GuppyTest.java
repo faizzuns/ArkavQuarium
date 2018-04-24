@@ -54,7 +54,7 @@ public class GuppyTest {
     @Test
     public void eat() {
         Guppy guppy = new Guppy(0,0);
-        LinkedList<FishFood> listFood = new LinkedList<FishFood>();
+        LinkedList<FishFood> listFood = new LinkedList<>();
         FishFood fishFood = new FishFood(0, 0);
         listFood.add(fishFood);
         guppy.eat(listFood);
@@ -64,7 +64,7 @@ public class GuppyTest {
     @Test
     public void makeCoin() {
         Guppy guppy = new Guppy(0,0);
-        Coin coin = guppy.makeCoin(guppy.getPhase());
+        Coin coin = guppy.makeCoin();
         assertTrue(coin.getX() == 0 && coin.getY() == 0 && coin.getValue() == guppy.getCoinValue() * BASE_COIN);
     }
 
@@ -78,7 +78,7 @@ public class GuppyTest {
     @Test
     public void getNearestFood() {
         Guppy guppy = new Guppy(0,0);
-        LinkedList<FishFood> listFood = new LinkedList<FishFood>();
+        LinkedList<FishFood> listFood = new LinkedList<>();
         FishFood fishFood1 = new FishFood(3, 3);
         FishFood fishFood2 = new FishFood(2, 2);
         listFood.add(fishFood1);

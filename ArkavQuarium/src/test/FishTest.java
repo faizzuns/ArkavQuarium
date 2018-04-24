@@ -1,5 +1,6 @@
-package model.Animals;
+package test;
 
+import model.Animals.Fish;
 import model.Coordinate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class FishTest {
 
-    Fish fish;
+    private Fish fish;
 
     @BeforeMethod
     public void setUp() {
@@ -71,6 +72,6 @@ public class FishTest {
 
     @Test
     public void notHungry() {
-        assertTrue(fish.notHungry() == true);
+        assertTrue(fish.notHungry());
     }
 }

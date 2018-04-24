@@ -10,7 +10,7 @@ import static java.lang.Math.sin;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class MoveTest {
-    Move move;
+    private Move move;
 
     @BeforeMethod
     public void setUp() {
@@ -27,18 +27,6 @@ public class MoveTest {
     public void setSpeed() {
         move.setSpeed(0.3);
         assertEquals(0.3, move.getSpeed());
-    }
-
-    @Test
-    public void moveTop() {
-        move.moveTop();
-        assertEquals(0 - 0.2, move.getY());
-    }
-
-    @Test
-    public void moveBottom() {
-        move.moveBottom();
-        assertEquals(0 + 0.2, move.getY());
     }
 
     @Test

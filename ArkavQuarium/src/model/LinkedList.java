@@ -41,9 +41,8 @@ public class LinkedList<T> {
     /**
      *
      * @param element element yang akan ditambahkan kelist
-     * @return true jika penambahkan berhasil
      */
-    public boolean add(T element){
+    public void add(T element){
         if (head == null){
             head = new Node<>(element);
         }
@@ -52,16 +51,14 @@ public class LinkedList<T> {
             while (temp.getNext() != null) temp = temp.getNext();
             temp.setNext(new Node<>(element));
         }
-        return true;
     }
 
     /**
      * Method ini akan menghapus elemen di dalam list
      *
      * @param idx index dari node yang ingin dihapus
-     * @return true jika penghapusan gagal
      */
-    public boolean remove(int idx){
+    public void remove(int idx){
         Node<T> prev = null;
         Node<T> now = head;
 
@@ -79,8 +76,7 @@ public class LinkedList<T> {
                 head = now.getNext();
             }
             now.setNext(null);
-            return true;
-        }else return false;
+        }
 
     }
 

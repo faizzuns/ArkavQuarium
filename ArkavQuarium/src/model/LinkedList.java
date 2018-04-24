@@ -1,15 +1,14 @@
 package model;
 
 public class LinkedList<T> {
-    Node<T> head;
+    private Node<T> head;
 
     public LinkedList() {
         head = null;
     }
 
     public boolean isEmpty(){
-        if (head == null) return true;
-        else return false;
+        return head == null;
     }
 
     public int size(){

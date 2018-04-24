@@ -22,15 +22,15 @@ import static model.Animals.Fish.PIRANHA_PRICE;
 
 public class Aquarium extends JPanel {
     private static final int BASE_EGG_PRICE = 30;
-    public static int SCREEN_WIDTH = 640;
-    public static int SCREEN_HEIGHT = 480;
-    public static int LOSE = 0;
-    public static int WIN = 1;
-    public static int LOAD = 0;
-    public static int NEW = 1;
-    public static int HOME = 0;
-    public static int PLAY = 1;
-    public static int FINISH = 2;
+    private static final int SCREEN_WIDTH = 640;
+    private static final int SCREEN_HEIGHT = 480;
+    private static final int LOSE = 0;
+    private static final int WIN = 1;
+    private static final int LOAD = 0;
+    private static final int NEW = 1;
+    private static final int HOME = 0;
+    private static final int PLAY = 1;
+    private static final int FINISH = 2;
 
     private final String CURRENT_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png";
     private final String BACKGROUND_IMAGE = "E:\\KULIAH\\SEMESTER 4\\IF2210 - Pemrograman Berorientasi Objek\\ArkavQuarium\\CPP\\background.jpg";
@@ -91,7 +91,7 @@ public class Aquarium extends JPanel {
         playAquarium();
     }
 
-    public void playAquarium(){
+    private void playAquarium(){
         status = PLAY;
         long lastFrameStart = System.nanoTime();
         long now;
@@ -123,7 +123,7 @@ public class Aquarium extends JPanel {
         }
     }
 
-    public void setResult(int result){
+    private void setResult(int result){
         status = FINISH;
         res = WIN == result ? "WIN" : "LOSE";
         jFrame.invalidate();
@@ -131,7 +131,7 @@ public class Aquarium extends JPanel {
         jFrame.repaint();
     }
 
-    public void syncAll(){
+    private void syncAll(){
         int i = 0;
         while (i < listFishFood.size()){
             listFishFood.get(i).moveGeneral(listFishFood.get(i).getX(), 400);
@@ -271,7 +271,7 @@ public class Aquarium extends JPanel {
         });
     }
 
-    public void saveFile(){
+    private void saveFile(){
         String fileName;
 
         //duit
@@ -426,7 +426,7 @@ public class Aquarium extends JPanel {
 
     }
 
-    public void readFile(){
+    private void readFile(){
         String fileName, line;
 
         //duit
@@ -662,7 +662,7 @@ public class Aquarium extends JPanel {
         }
     }
 
-    public void initDefault(){
+    private void initDefault(){
         duit = 10;
         telur = 0;
         listGuppy.add(new Guppy(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2));

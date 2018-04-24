@@ -12,7 +12,7 @@ public class Coordinate {
     /**
      *
      */
-    public Coordinate() {
+    Coordinate() {
         x = 0;
         y = 0;
     }

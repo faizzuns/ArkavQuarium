@@ -8,7 +8,7 @@ class Main {
 	// write your code here
 
         try {
-            Aquarium aquarium = new Aquarium("D:\\Semester4\\IF2210-PemrogramanBerorientasiObjek\\ArkavQuarium\\CPP\\draw\\guppy0kiri.png");
+            Aquarium aquarium = new Aquarium("res\\guppy0kiri.png");
             aquarium.buildFrame();
 
             aquarium.setContent();

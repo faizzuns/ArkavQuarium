@@ -170,6 +170,7 @@ public class Guppy extends Fish {
      * @return jika mengembalikan nilai 2 maka ikan berada pada posisi kenyang
      * jika 1 maka lapar
      * jika 0 maka mati dan ikan dihapus dari list
+     * @param listCoin listCoin
      */
     public int synchronize(LinkedList<Coin> listCoin) {
         setLifetime((getLifetime() + 1) % 1000);
